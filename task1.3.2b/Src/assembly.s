@@ -8,9 +8,10 @@
 @ define variables
 
 string_buffer: .asciz "yourmom" @ Define a null-terminated string
-ascii_string: .asciz "yourmom" @ Define a null-terminated string
+ascii_string: .asciz "yourmom" @ Define a null-terminated string must be the same size
 byte_array: .byte 0, 1, 2, 3, 4, 5, 6
 word_array: .word 0x00, 0x40, 0x80, 0xc0, 0x10, 0x14, 0xffffffff
+
 
 
 .text
@@ -24,6 +25,7 @@ main:
 	LDR R1, =string_buffer  @ the address of the string
 	LDR R2, =0x00 	@ counter to the current place in the string
 	BL convert_to_uppercase
+	BL caesar_cipher
 
 string_loop:
 
@@ -78,3 +80,26 @@ convert_next:
 
 convert_end:
     POP {PC}          @ Return to the calling function
+
+caesar_cipher:
+    PUSH {LR}               @ Save return address
+    LDR R1, =string_buffer  @ Load the address of the string_buffer
+
+cipher_loop:
+    LDRB R3, [R1], #1       @ Load the current character and post-increment the address
+    CMP R3, #0              @ Check if it's the null terminator
+    BEQ cipher_end          @ If it's null, exit the loop
+
+    @ Apply cipher to uppercase character
+    ADD R3, R3, R2          @ Add the shift value
+    CMP R3, #'Z'
+    BLE store_char          @ If less or equal to 'Z', no wrap needed
+    SUB R3, R3, #26         @ Wrap around from 'Z' back to 'A'
+
+store_char:
+    STRB R3, [R1, #-1]      @ Store the shifted character back
+    B cipher_loop           @ Loop for the next character
+
+cipher_end:
+    POP {PC}                @ Return to calling function
+
