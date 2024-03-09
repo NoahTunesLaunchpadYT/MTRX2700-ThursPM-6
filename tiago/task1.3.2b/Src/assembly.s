@@ -30,26 +30,26 @@ main:
 	BL convert_cipher @apply cipher
 
 convert_cipher:
-PUSH {LR}
+	PUSH {LR}
 
 ceasar_loop:
-LDRB R5,[R0], #1
-CMP R5, #0 @check if null
-BEQ ceasar_end @if null end
+	LDRB R5,[R0], #1
+	CMP R5, #0 @check if null
+	BEQ ceasar_end @if null end
 
-CMP R5, #65 @compare to "A"
-BLT ceasar_next @if less not a letter
-CMP R5, #90 @compare to "Z"
-BGT ceasar_next @if more not a uppercase letter
+	CMP R5, #65 @compare to "A"
+	BLT ceasar_next @if less not a letter
+	CMP R5, #90 @compare to "Z"
+	BGT ceasar_next @if more not a uppercase letter
 
-ADD R6, R5, R4
-CMP R6, #90 @compare to "Z"
-BGT wrap_around @if greater than wrap around
-CMP R6, #65
-BLT wrap_around @if less than wrap around
+	ADD R6, R5, R4
+	CMP R6, #90 @compare to "Z"
+	BGT wrap_around @if greater than wrap around
+	CMP R6, #65
+	BLT wrap_around @if less than wrap around
 
-STRB R6, [R0, #-1] @store the shifted character
-B caesar_next
+	STRB R6, [R0, #-1] @store the shifted character
+	B caesar_next
 
 
 wrap_around:
