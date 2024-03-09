@@ -1,0 +1,22 @@
+!SESSION 2024-02-29 19:25:43.998 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-29 19:26:15.739
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-29 19:26:15.759
+!MESSAGE Log4j2 initialized with config file C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\task1.3.2b\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-29 19:26:20.647
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.resources 4 77 2024-02-29 19:27:04.798
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-02-29 19:27:04.798
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-02-29 19:27:04.798
+!MESSAGE C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\task1.3.2b overlaps the workspace location: C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\task1.3.2b
