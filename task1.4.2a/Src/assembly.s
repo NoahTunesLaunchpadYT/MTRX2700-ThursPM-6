@@ -1,27 +1,23 @@
-.syntax unified
+..syntax unified
 .thumb
 
 #include "initialise.s"
 
 .global main
 
-
 .data
 @ define variables
-
 
 .text
 @ define text
 
+@ Function to set LEDs based on a bitmask in R0
+set_leds:
+    LDR R1, =GPIOE         @ Load GPIOE base address into R1
+    STRB R0, [R1, #ODR + 1]@ Store the bitmask to ODR
+    BX LR                  @ Return from function
 
-
-@ discuss what a 'function' is, just a label the same way a variable is a label
-@ these just define a memory address
-@ it is how we use the memory address that gives it meaning
-@ get the 'address' of a label for code or data
-
-
-@ this is the entry function called from the c file
+@ Main entry function
 main:
 	@ Branch with link to set the clocks for the I/O and UART
 	BL enable_peripheral_clocks
@@ -29,22 +25,17 @@ main:
 	@ Once the clocks are started, need to initialise the discovery board I/O
 	BL initialise_discovery_board
 
-	@ store the current light pattern (binary mask) in R4
-	LDR R4, =0b00110011 @ load a pattern for the set of LEDs (every second one is on)
-
-@ 	Look at the GPIOE offset ODR, display as hex, then as binary. Look at the manual page 239
-
-	LDR R0, =GPIOE  @ load the address of the GPIOE register into R0
-	STRB R4, [R0, #ODR + 1]   @ store this to the second byte of the ODR (bits 8-15)
-	EOR R4, #0xFF	@ toggle all of the bits in the byte (1->0 0->1)
-
+	@ Set the initial LED pattern using the set_leds function
+	LDR R0, =0b00110011     @ Load initial pattern for the set of LEDs
+	BL set_leds             @ Set LEDs to initial pattern
+	EOR R0, R0, #0xFF       @ Toggle all bits in the pattern (inverting the LED states)
+	BL set_leds             @ Update LEDs with the toggled pattern
 
 program_loop:
+	@ Task: read the input button
+	LDR R0, =GPIOA          @ Load address of port for the input button into R0
+	LDR R1, [R0, #IDR]      @ Read the input data register of GPIOA into R1
 
-@ 	task: read in the input button !
-	LDR R0, =GPIOA	@ port for the input button
-	LDR R1, [R0, IDR]
+	@ Place additional program logic here
 
-@ 	Look at the GPIOA offset IDR, display as hex, then as binary. Look at the manual page 239
-
-	B program_loop @ return to the program_loop label
+	B program_loop          @ Loop indefinitely
