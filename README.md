@@ -11,15 +11,20 @@ Mudakkir author to Exercise 4.
 
 ## Project Overview
 
-## Exercise 1 - Converting functions, involving all to uppercase, all to lowercase, a ceasar cipher and a Substitution Cipher.
+## Exercise 1
+Converting functions, involving all to uppercase, all to lowercase, a ceasar cipher and a Substitution Cipher.
 
-## Exercise 2 - Functions that involve using LEDs as output and user button used as inputs to create a bunch of patterns.
+## Exercise 2
+Functions that involve using LEDs as output and user button used as inputs to create a bunch of patterns.
 
-## Exercise 3 - One Line Descriptor
+## Exercise 3
+One Line Descriptor
 
-## Exercise 4 - One Line Descriptor
+## Exercise 4
+One Line Descriptor
 
-## Exercise 5 - One Line Descriptor
+## Exercise 5
+One Line Descriptor
 
 
 ### Summary
