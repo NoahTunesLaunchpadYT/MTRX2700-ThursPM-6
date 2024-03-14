@@ -1,0 +1,42 @@
+.syntax unified
+.thumb
+
+#include "initialise.s"
+
+.global main
+
+.data
+@ define variables
+LED_Pattern: .word 0b00100000
+
+.text
+@ define text
+
+set_leds:
+    LDR R1, =GPIOE
+    STRB R0, [R1, #ODR + 1]
+    BX LR
+
+main:
+	@ Branch with link to set the clocks for the I/O and UART
+	BL enable_peripheral_clocks
+
+	@ Once the clocks are started, need to initialise the discovery board I/O
+	BL initialise_discovery_board
+
+
+	LDR R0, =LED_Pattern
+	LDR R0, [R0]
+	@BL set_leds
+	@EOR R0, R0, #0xFF
+	B set_leds
+program_loop:
+
+	LDR R0, =GPIOA
+	LDR R1, [R0, #IDR]
+
+
+
+	B program_loop          @ Loop indefinitely
+
+

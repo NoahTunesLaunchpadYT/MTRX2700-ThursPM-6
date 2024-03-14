@@ -2036,3 +2036,54 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-09 14:47:10.912
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-03-13 19:24:02.108 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-13 19:24:18.485
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-13 19:24:18.498
+!MESSAGE Log4j2 initialized with config file C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-13 19:24:25.113
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-03-13 19:26:09.153 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-13 19:26:19.001
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-13 19:26:19.004
+!MESSAGE Log4j2 initialized with config file C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-13 19:26:26.061
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-03-13 19:26:36.888
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39
+!SESSION 2024-03-13 21:52:19.358 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-13 21:52:25.686
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-13 21:52:25.804
+!MESSAGE Log4j2 initialized with config file C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-13 21:52:30.714
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-13 21:53:25.743
+!MESSAGE Indexed 'task1.4.2b' (3 sources, 53 headers) in 1.13 sec: 1,950 declarations; 2,832 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)

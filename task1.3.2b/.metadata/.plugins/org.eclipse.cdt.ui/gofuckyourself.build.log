@@ -1,0 +1,10 @@
+21:45:54 **** Incremental Build of configuration Debug for project gofuckyourself ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Src/assembly.d" -MT"Src/assembly.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/assembly.o" "../Src/assembly.s"
+../Src/assembly.s: Assembler messages:
+../Src/assembly.s:50: Error: ARM register expected -- `str R0,[LED_Pattern]'
+make: *** [Src/subdir.mk:25: Src/assembly.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+21:45:55 Build Failed. 2 errors, 0 warnings. (took 512ms)
+
