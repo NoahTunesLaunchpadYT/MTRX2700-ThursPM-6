@@ -20,37 +20,37 @@ set_leds:
     BX LR
 
 increment_led_pattern:
-    PUSH {LR}               @ Save Link Register
+    PUSH {LR}
     LDR R2, =Buffer_LED_Pattern
-    LDR R3, [R2]            @ Load current pattern into R3
-    MOVS R4, #1             @ Set R4 as our bitmask checker (starting with LSB)
+    LDR R3, [R2]
+    MOVS R4, #1
 
 find_next_led:
-    TST R3, R4              @ Test current LED
-    BNE already_on          @ If this LED is already on, check next
-    ORR R3, R3, R4          @ Set the LED on
-    STR R3, [R2]            @ Save updated pattern
-    POP {PC}                @ Return from function
+    TST R3, R4
+    BNE already_on
+    ORR R3, R3, R4
+    STR R3, [R2]
+    POP {PC}
 
 already_on:
-    LSL R4, R4, #1          @ Shift our checker to next LED
-    CMP R4, #0              @ Check if we have checked all LEDs
-    BEQ all_leds_on         @ If all LEDs are on, start over
-    B find_next_led         @ Check next LED
+    LSL R4, R4, #1
+    CMP R4, #0
+    BEQ all_leds_on
+    B find_next_led
 
 all_leds_on:
-    MOVS R3, #1             @ Reset pattern: start with first LED only
-    STR R3, [R2]            @ Store the reset pattern
-    POP {PC}                @ Return from function
+    MOVS R3, #1
+    STR R3, [R2]
+    POP {PC}
 
 simple_delay:
-    PUSH {R5, LR}           @ Save R5 and LR
+    PUSH {R5, LR}
     LDR R5, =DelayValue
     LDR R5, [R5]
 delay_loop:
-    SUBS R5, R5, #1         @ Decrement delay counter
-    BNE delay_loop          @ If R5 is not zero, loop
-    POP {R5, PC}            @ Restore R5 and LR, then return
+    SUBS R5, R5, #1
+    BNE delay_loop
+    POP {R5, PC}
 
 main:
 	BL enable_peripheral_clocks
@@ -84,3 +84,4 @@ button_pressed:
     LDR R2, [R2]
     BL set_leds
     B program_loop
+

@@ -138,55 +138,55 @@ set_leds:
 080001fc <increment_led_pattern>:
 
 increment_led_pattern:
-    PUSH {LR}               @ Save Link Register
+    PUSH {LR}
  80001fc:	b500      	push	{lr}
     LDR R2, =Buffer_LED_Pattern
  80001fe:	4a1c      	ldr	r2, [pc, #112]	; (8000270 <button_pressed+0x1a>)
-    LDR R3, [R2]            @ Load current pattern into R3
+    LDR R3, [R2]
  8000200:	6813      	ldr	r3, [r2, #0]
-    MOVS R4, #1             @ Set R4 as our bitmask checker (starting with LSB)
+    MOVS R4, #1
  8000202:	2401      	movs	r4, #1
 
 08000204 <find_next_led>:
 
 find_next_led:
-    TST R3, R4              @ Test current LED
+    TST R3, R4
  8000204:	4223      	tst	r3, r4
-    BNE already_on          @ If this LED is already on, check next
+    BNE already_on
  8000206:	d103      	bne.n	8000210 <already_on>
-    ORR R3, R3, R4          @ Set the LED on
+    ORR R3, R3, R4
  8000208:	ea43 0304 	orr.w	r3, r3, r4
-    STR R3, [R2]            @ Save updated pattern
+    STR R3, [R2]
  800020c:	6013      	str	r3, [r2, #0]
-    POP {PC}                @ Return from function
+    POP {PC}
  800020e:	bd00      	pop	{pc}
 
 08000210 <already_on>:
 
 already_on:
-    LSL R4, R4, #1          @ Shift our checker to next LED
+    LSL R4, R4, #1
  8000210:	ea4f 0444 	mov.w	r4, r4, lsl #1
-    CMP R4, #0              @ Check if we have checked all LEDs
+    CMP R4, #0
  8000214:	2c00      	cmp	r4, #0
-    BEQ all_leds_on         @ If all LEDs are on, start over
+    BEQ all_leds_on
  8000216:	d000      	beq.n	800021a <all_leds_on>
-    B find_next_led         @ Check next LED
+    B find_next_led
  8000218:	e7f4      	b.n	8000204 <find_next_led>
 
 0800021a <all_leds_on>:
 
 all_leds_on:
-    MOVS R3, #1             @ Reset pattern: start with first LED only
+    MOVS R3, #1
  800021a:	2301      	movs	r3, #1
-    STR R3, [R2]            @ Store the reset pattern
+    STR R3, [R2]
  800021c:	6013      	str	r3, [r2, #0]
-    POP {PC}                @ Return from function
+    POP {PC}
  800021e:	bd00      	pop	{pc}
 
 08000220 <simple_delay>:
 
 simple_delay:
-    PUSH {R5, LR}           @ Save R5 and LR
+    PUSH {R5, LR}
  8000220:	b520      	push	{r5, lr}
     LDR R5, =DelayValue
  8000222:	4d14      	ldr	r5, [pc, #80]	; (8000274 <button_pressed+0x1e>)
@@ -195,11 +195,11 @@ simple_delay:
 
 08000226 <delay_loop>:
 delay_loop:
-    SUBS R5, R5, #1         @ Decrement delay counter
+    SUBS R5, R5, #1
  8000226:	3d01      	subs	r5, #1
-    BNE delay_loop          @ If R5 is not zero, loop
+    BNE delay_loop
  8000228:	d1fd      	bne.n	8000226 <delay_loop>
-    POP {R5, PC}            @ Restore R5 and LR, then return
+    POP {R5, PC}
  800022a:	bd20      	pop	{r5, pc}
 
 0800022c <main>:
