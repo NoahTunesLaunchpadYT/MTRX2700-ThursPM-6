@@ -15,17 +15,11 @@ enable_peripheral_clocks:
 
 @ initialise the discovery board I/O (just outputs: inputs are selected by default)
 initialise_discovery_board:
-	LDR R0, =GPIOA
-	LDR R1, [R0, #MODER]
-	BIC R1, R1, #0x3
-	STR R1, [R0, #MODER]
-
 	LDR R0, =GPIOE 	@ load the address of the GPIOE register into R0
 	LDR R1, =0x5555  @ load the binary value of 01 (OUTPUT) for each port in the upper two bytes
-							 @ as 0x5555 = 01010101 01010101
+					 @ as 0x5555 = 01010101 01010101
 	STRH R1, [R0, #MODER + 2]   @ store the new register values in the top half word representing
 								@ the MODER settings for pe8-15
-
 	BX LR @ return from function call
 
 
