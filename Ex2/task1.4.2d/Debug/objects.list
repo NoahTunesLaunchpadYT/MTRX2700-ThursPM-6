@@ -1,0 +1,6 @@
+"./Src/assembly.o"
+"./Src/count_character1.o"
+"./Src/create_led_pattern.o"
+"./Src/definitions.o"
+"./Src/initialise.o"
+"./Startup/startup_stm32f303vctx.o"

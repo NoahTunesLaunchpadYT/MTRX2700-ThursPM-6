@@ -59,8 +59,8 @@ all: main-build
 main-build: task1.4.2c.elf secondary-outputs
 
 # Tool invocations
-task1.4.2c.elf task1.4.2c.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\task1.4.c\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "task1.4.2c.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\task1.4.c\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="task1.4.2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+task1.4.2c.elf task1.4.2c.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2c\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "task1.4.2c.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2c\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="task1.4.2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
