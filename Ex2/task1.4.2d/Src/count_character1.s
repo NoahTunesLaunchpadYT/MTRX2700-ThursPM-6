@@ -14,7 +14,7 @@ count_character1:
 count_loop:
     LDRB R0, [R1], #1 @Load byte from string and post-increment address
     CMP R0, #0 @Cmp byte to null
-    BEQ count_d @If null end
+    BEQ count_done @If null end
     CMP R0, R2 @Cmp letter
     BNE count_loop @If not continue
     ADDS R3, R3, #1

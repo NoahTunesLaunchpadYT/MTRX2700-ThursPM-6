@@ -8,7 +8,7 @@
 
 .data
 @ define variables
-Word: .asciz "aaaabbccct"
+Word: .asciz "aaaabbbccd"
 Default_LED_Pattern: .word 0b00000000
 DelayValue: .word 500000
 Defaultletter: .asciz "a"

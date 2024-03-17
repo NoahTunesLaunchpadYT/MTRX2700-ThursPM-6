@@ -31,21 +31,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  13 .comment      00000043  00000000  00000000  00020048  2**0
                   CONTENTS, READONLY
- 14 .debug_line   0000017b  00000000  00000000  0002008b  2**0
+ 14 .debug_line   00000179  00000000  00000000  0002008b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line_str 000000b6  00000000  00000000  00020206  2**0
+ 15 .debug_line_str 000000b6  00000000  00000000  00020204  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_info   0000006c  00000000  00000000  000202bc  2**0
+ 16 .debug_info   0000006c  00000000  00000000  000202ba  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_abbrev 0000003a  00000000  00000000  00020328  2**0
+ 17 .debug_abbrev 0000003a  00000000  00000000  00020326  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_aranges 00000068  00000000  00000000  00020368  2**3
+ 18 .debug_aranges 00000068  00000000  00000000  00020360  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000000ab  00000000  00000000  000203d0  2**0
+ 19 .debug_str    000000ab  00000000  00000000  000203c8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_rnglists 00000019  00000000  00000000  0002047b  2**0
+ 20 .debug_rnglists 00000019  00000000  00000000  00020473  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  0000002c  00000000  00000000  00020494  2**2
+ 21 .debug_frame  0000002c  00000000  00000000  0002048c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -123,42 +123,42 @@ initialise_discovery_board:
  80001f4:	4770      	bx	lr
 
 080001f6 <count_character1>:
-@ Function to count occurrences of a character in a string
+
 @ R0 = ASCII value of character
 @ R1 = Pointer to string
 @ Returns count in R0
 count_character1:
-    PUSH {R2, R3, LR}      @ Save registers and Link Register
+    PUSH {R2, R3, LR}
  80001f6:	b50c      	push	{r2, r3, lr}
-    MOVS R0, R2            @ Move character to search for into R2
+    MOVS R0, R2
  80001f8:	0010      	movs	r0, r2
-    MOVS R3, #0            @ Initialize count to 0
+    MOVS R3, #0
  80001fa:	2300      	movs	r3, #0
 
 080001fc <count_loop>:
 
 count_loop:
-    LDRB R0, [R1], #1      @ Load byte from string and post-increment address
+    LDRB R0, [R1], #1 @Load byte from string and post-increment address
  80001fc:	f811 0b01 	ldrb.w	r0, [r1], #1
-    CMP R0, #0             @ Compare byte to null terminator
+    CMP R0, #0 @Cmp byte to null
  8000200:	2800      	cmp	r0, #0
-    BEQ count_done         @ If null terminator, end loop
+    BEQ count_done @If null end
  8000202:	d003      	beq.n	800020c <count_done>
-    CMP R0, R2             @ Compare byte to target character
+    CMP R0, R2 @Cmp letter
  8000204:	4290      	cmp	r0, r2
-    BNE count_loop         @ If not equal, continue loop
+    BNE count_loop @If not continue
  8000206:	d1f9      	bne.n	80001fc <count_loop>
-    ADDS R3, R3, #1        @ Increment count
+    ADDS R3, R3, #1
  8000208:	3301      	adds	r3, #1
-    B count_loop           @ Repeat loop
+    B count_loop
  800020a:	e7f7      	b.n	80001fc <count_loop>
 
 0800020c <count_done>:
 
 count_done:
-    MOVS R0, R3            @ Move final count to R0
+    MOVS R0, R3
  800020c:	0018      	movs	r0, r3
-    POP {R2, R3, PC}       @ Restore registers and return
+    POP {R2, R3, PC}
  800020e:	bd0c      	pop	{r2, r3, pc}
 
 08000210 <set_leds>:
@@ -201,11 +201,8 @@ main:
  800022a:	7812      	ldrb	r2, [r2, #0]
 
 
-	@does this for the default letter straight away
-	@BL set_leds
-	BL count_character1 @after this R0 contains letter count
+	BL count_character1
  800022c:	f7ff ffe3 	bl	80001f6 <count_character1>
-	@LDR R9, [R0]
 	BL create_led_pattern
  8000230:	f000 f834 	bl	800029c <create_led_pattern>
 	LDR R1, =Word @load word
@@ -217,13 +214,8 @@ main:
 
 program_loop: @check if button pressed
 
-
 	BL delay
  800023a:	f000 f817 	bl	800026c <delay>
-	@BL set_leds
-	@BL count_character1 @after this R0 contains letter count
-	@LDR R9, [R0]
-	@BL create_led_pattern
 
  	LDR R7, =GPIOA
  800023e:	f04f 4790 	mov.w	r7, #1207959552	; 0x48000000
@@ -233,7 +225,6 @@ program_loop: @check if button pressed
  8000244:	f014 0f01 	tst.w	r4, #1
     BNE button_pressed
  8000248:	d100      	bne.n	800024c <button_pressed>
-    @BL set_leds
 
 	B program_loop
  800024a:	e7f6      	b.n	800023a <program_loop>
@@ -254,7 +245,6 @@ button_pressed:
  8000256:	490f      	ldr	r1, [pc, #60]	; (8000294 <delay_loop+0x1c>)
 	BL count_character1 @after this R0 contains letter count
  8000258:	f7ff ffcd 	bl	80001f6 <count_character1>
-	@LDR R9, [R0]
 	BL create_led_pattern
  800025c:	f000 f81e 	bl	800029c <create_led_pattern>
 	BL set_leds
@@ -265,7 +255,6 @@ button_pressed:
  8000264:	e7e9      	b.n	800023a <program_loop>
 
 08000266 <load_default>:
-
 
 load_default:
 	LDR R2, =Defaultletter
@@ -280,20 +269,20 @@ load_default:
 
 
 delay:
-    PUSH {R8, LR}        @ Save R8 and Link Register on the stack
+    PUSH {R8, LR}
  800026c:	e92d 4100 	stmdb	sp!, {r8, lr}
-    LDR R8, =DelayValue  @ Load the address of DelayValue
+    LDR R8, =DelayValue
  8000270:	f8df 8024 	ldr.w	r8, [pc, #36]	; 8000298 <delay_loop+0x20>
-    LDR R8, [R8]         @ Load the actual delay value from DelayValue into R8
+    LDR R8, [R8]
  8000274:	f8d8 8000 	ldr.w	r8, [r8]
 
 08000278 <delay_loop>:
     delay_loop:
-        SUBS R8, R8, #1  @ Subtract 1 from R8
+        SUBS R8, R8, #1
  8000278:	f1b8 0801 	subs.w	r8, r8, #1
-        BNE delay_loop   @ If result is not zero, continue loop
+        BNE delay_loop
  800027c:	d1fc      	bne.n	8000278 <delay_loop>
-    POP {R8, PC}         @ Restore R8 and return from function
+    POP {R8, PC}
  800027e:	e8bd 8100 	ldmia.w	sp!, {r8, pc}
  8000282:	0000      	.short	0x0000
 	LDR R0, =RCC  @ load the address of the RCC address boundary (for enabling the IO clock)
@@ -306,38 +295,38 @@ delay:
  8000290:	20000013 	.word	0x20000013
 	LDR R1, =Word @load word
  8000294:	20000000 	.word	0x20000000
-    LDR R8, =DelayValue  @ Load the address of DelayValue
+    LDR R8, =DelayValue
  8000298:	2000000f 	.word	0x2000000f
 
 0800029c <create_led_pattern>:
 
-@ Function to create LED pattern based on the value in R0
+.global create_led_pattern
 @ R0 = Number of LEDs to turn on
 @ Resulting pattern is stored in R6
 create_led_pattern:
-    MOVS R6, #0x01    @ Start with the pattern 0b00000001
+    MOVS R6, #0x01@ Starting pattern 0b00000001
  800029c:	2601      	movs	r6, #1
-    MOVS R9, R0	@saves the count for later.
+    MOVS R9, R0
  800029e:	ea5f 0900 	movs.w	r9, r0
     CMP R0, #0
  80002a2:	2800      	cmp	r0, #0
     BEQ pattern_nothing
  80002a4:	d007      	beq.n	80002b6 <pattern_nothing>
-    SUBS R0, R0, #1   @ Subtract 1 from R0, as we already have one LED on
+    SUBS R0, R0, #1@ Sub 1 from R0
  80002a6:	3801      	subs	r0, #1
 
 080002a8 <create_pattern_loop>:
 
 create_pattern_loop:
-    CMP R0, #0        @ Compare R0 with 0
+    CMP R0, #0
  80002a8:	2800      	cmp	r0, #0
-    BEQ pattern_done  @ If R0 is 0, the pattern is complete
+    BEQ pattern_done@ If R0 is 0, the pattern is complete
  80002aa:	d006      	beq.n	80002ba <pattern_done>
-    LSLS R6, R6, #1   @ Shift the pattern left by 1 bit
+    LSLS R6, R6, #1@ Shift left by 1 bit
  80002ac:	0076      	lsls	r6, r6, #1
-    ORRS R6, R6, #1   @ OR the pattern with 0b00000001 to turn on the next LED
+    ORRS R6, R6, #1@ OR the pattern to turn on the next LED
  80002ae:	f056 0601 	orrs.w	r6, r6, #1
-    SUBS R0, R0, #1   @ Decrement R0
+    SUBS R0, R0, #1
  80002b2:	3801      	subs	r0, #1
     B create_pattern_loop
  80002b4:	e7f8      	b.n	80002a8 <create_pattern_loop>
@@ -354,7 +343,7 @@ pattern_nothing:
 080002ba <pattern_done>:
 
 pattern_done:
-    BX LR             @ Return from function
+    BX LR
  80002ba:	4770      	bx	lr
 
 080002bc <Reset_Handler>:
