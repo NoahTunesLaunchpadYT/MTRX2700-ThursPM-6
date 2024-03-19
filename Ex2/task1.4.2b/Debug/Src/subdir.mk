@@ -7,18 +7,21 @@
 S_SRCS += \
 ../Src/assembly.s \
 ../Src/definitions.s \
+../Src/delay.s \
 ../Src/increment_pattern.s \
 ../Src/initialise.s 
 
 OBJS += \
 ./Src/assembly.o \
 ./Src/definitions.o \
+./Src/delay.o \
 ./Src/increment_pattern.o \
 ./Src/initialise.o 
 
 S_DEPS += \
 ./Src/assembly.d \
 ./Src/definitions.d \
+./Src/delay.d \
 ./Src/increment_pattern.d \
 ./Src/initialise.d 
 
@@ -30,7 +33,7 @@ Src/%.o: ../Src/%.s Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/definitions.d ./Src/definitions.o ./Src/increment_pattern.d ./Src/increment_pattern.o ./Src/initialise.d ./Src/initialise.o
+	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/definitions.d ./Src/definitions.o ./Src/delay.d ./Src/delay.o ./Src/increment_pattern.d ./Src/increment_pattern.o ./Src/initialise.d ./Src/initialise.o
 
 .PHONY: clean-Src
 

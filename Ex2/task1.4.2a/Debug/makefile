@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := W01-lecture-io-example
+BUILD_ARTIFACT_NAME := task1.4.2a
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-W01-lecture-io-example.elf \
+task1.4.2a.elf \
 
 MAP_FILES += \
-W01-lecture-io-example.map \
+task1.4.2a.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-W01-lecture-io-example.list \
+task1.4.2a.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: W01-lecture-io-example.elf secondary-outputs
+main-build: task1.4.2a.elf secondary-outputs
 
 # Tool invocations
-W01-lecture-io-example.elf W01-lecture-io-example.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2a\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "W01-lecture-io-example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2a\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="W01-lecture-io-example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+task1.4.2a.elf task1.4.2a.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2a\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "task1.4.2a.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex2\task1.4.2a\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="task1.4.2a.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-W01-lecture-io-example.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "W01-lecture-io-example.list"
+task1.4.2a.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "task1.4.2a.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) W01-lecture-io-example.elf W01-lecture-io-example.list W01-lecture-io-example.map default.size.stdout
+	-$(RM) default.size.stdout task1.4.2a.elf task1.4.2a.list task1.4.2a.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

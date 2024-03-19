@@ -1,5 +1,6 @@
 "./Src/assembly.o"
 "./Src/definitions.o"
+"./Src/delay.o"
 "./Src/increment_pattern.o"
 "./Src/initialise.o"
 "./Startup/startup_stm32f303vctx.o"

@@ -1,14 +1,16 @@
 .syntax unified
 .thumb
 
+
 #include "initialise.s"
 #include "definitions.s"
 #include "count_character1.s"
+#include "delay.s"
 .global main
 
 .data
 @ define variables
-Word: .asciz "aaaabbbccd"
+Word: .asciz "abbcccddddeeeeeffffffggggggghhhhhhhhiiiiiiijjjjjjkkkkkllllmmmnnoppqqqrrrrsssssttttttuuuuuuuvvvvvvvvwwwwwwwxxxxxxyyyyyzzzz"
 Default_LED_Pattern: .word 0b00000000
 DelayValue: .word 500000
 Defaultletter: .asciz "a"
@@ -19,7 +21,6 @@ set_leds: @R6 is the pattern
     LDR R5, =GPIOE
     STRB R6, [R5, #ODR + 1]
     BX LR
-
 
 
 main:
@@ -70,15 +71,4 @@ load_default:
 	LDR R2, =Defaultletter
 	LDRB R2, [R2]
 	B program_loop
-
-
-
-delay:
-    PUSH {R8, LR}
-    LDR R8, =DelayValue
-    LDR R8, [R8]
-    delay_loop:
-        SUBS R8, R8, #1
-        BNE delay_loop
-    POP {R8, PC}
 

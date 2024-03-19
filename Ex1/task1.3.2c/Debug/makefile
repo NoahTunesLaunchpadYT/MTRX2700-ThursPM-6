@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := W02-strings-example
+BUILD_ARTIFACT_NAME := task1.3.2c
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-W02-strings-example.elf \
+task1.3.2c.elf \
 
 MAP_FILES += \
-W02-strings-example.map \
+task1.3.2c.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-W02-strings-example.list \
+task1.3.2c.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: W02-strings-example.elf secondary-outputs
+main-build: task1.3.2c.elf secondary-outputs
 
 # Tool invocations
-W02-strings-example.elf W02-strings-example.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-2024\W02-strings-example\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "W02-strings-example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-2024\W02-strings-example\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="W02-strings-example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+task1.3.2c.elf task1.3.2c.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex1\task1.3.2c\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "task1.3.2c.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex1\task1.3.2c\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="task1.3.2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-W02-strings-example.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "W02-strings-example.list"
+task1.3.2c.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "task1.3.2c.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) W02-strings-example.elf W02-strings-example.list W02-strings-example.map default.size.stdout
+	-$(RM) default.size.stdout task1.3.2c.elf task1.3.2c.list task1.3.2c.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

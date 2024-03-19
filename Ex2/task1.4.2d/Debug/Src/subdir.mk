@@ -9,6 +9,7 @@ S_SRCS += \
 ../Src/count_character1.s \
 ../Src/create_led_pattern.s \
 ../Src/definitions.s \
+../Src/delay.s \
 ../Src/initialise.s 
 
 OBJS += \
@@ -16,6 +17,7 @@ OBJS += \
 ./Src/count_character1.o \
 ./Src/create_led_pattern.o \
 ./Src/definitions.o \
+./Src/delay.o \
 ./Src/initialise.o 
 
 S_DEPS += \
@@ -23,6 +25,7 @@ S_DEPS += \
 ./Src/count_character1.d \
 ./Src/create_led_pattern.d \
 ./Src/definitions.d \
+./Src/delay.d \
 ./Src/initialise.d 
 
 
@@ -33,7 +36,7 @@ Src/%.o: ../Src/%.s Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/count_character1.d ./Src/count_character1.o ./Src/create_led_pattern.d ./Src/create_led_pattern.o ./Src/definitions.d ./Src/definitions.o ./Src/initialise.d ./Src/initialise.o
+	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/count_character1.d ./Src/count_character1.o ./Src/create_led_pattern.d ./Src/create_led_pattern.o ./Src/definitions.d ./Src/definitions.o ./Src/delay.d ./Src/delay.o ./Src/initialise.d ./Src/initialise.o
 
 .PHONY: clean-Src
 
