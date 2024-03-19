@@ -5,8 +5,8 @@ Benjamin Wood
 Mudakkir Sultan
 
 ## Roles and Responbilities
-Tiago is responable for team minutes and allocating tasks, and formatting the git repo, author to Exericse 1 and 2.
-Benjamin author to Exercise 1 and 3.
+Tiago is responable for team minutes and allocating tasks, and formatting the git repo, author to Exericse 1, 2 and 5.
+Benjamin author to Exercise 1, 3 and 5.
 Mudakkir author to Exercise 4.
 
 ## Project Overview
@@ -29,12 +29,23 @@ One Line Descriptor
 
 ### Summary
 
+
 ### Usage
+
+
 
 ### Valid input
 
+
 ### Functions and modularity
+Ex1 is not modularize as the code is very short and does not include a lot of reusable code. Ex2 is modularized as much as can be separating most of the code into reused functions some 
+include delay and create pattern. Ex3 . Ex4 . Ex5 is broken down into multiple reused functions from the previous 4 exerices.
 
 ### Testing
+For Ex1 and Ex2, testing involved going set up set in the debugger and mainly looking at what each register was doing, and also look for looping problems. 
+Ex3 involved a lot of trial n error, we used a program called puTTy to view the outputs of the commports e.g. everything that gets transmitting
+Ex4 
+Ex5 used puTTy to view the outputs of the commports, and used the debugger to go through step by step to view the registers and looping problems
 
 ### Notes
+Ex3 is really hard
