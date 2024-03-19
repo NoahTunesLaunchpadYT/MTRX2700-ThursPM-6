@@ -69,3 +69,4 @@ next_char:
 
 done:
 POP {R2 ,R3, R5, PC} @ Restore R2,R3,R5 off the stack.
+

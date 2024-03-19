@@ -7,7 +7,7 @@
 #include "count_character.s"
 #include "delay.s"
 
-.global letter_counter
+@.global letter_counter
 
 .extern Word
 
@@ -24,7 +24,7 @@ set_leds: @R6 is the pattern
     BX LR
 
 
-main:
+letter_counter:
     BL enable_peripheral_clocks
     BL initialise_discovery_board
 
