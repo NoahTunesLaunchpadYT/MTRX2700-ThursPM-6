@@ -1,12 +1,12 @@
 .syntax unified
 .thumb
 
-.global count_character
+@.global count_character
 
 @ R0 = ASCII value of character
 @ R1 = Pointer to string
 @ Returns count in R0
-count_character1:
+count_character:
     PUSH {R2, R3, LR}
     MOVS R0, R2
     MOVS R3, #0

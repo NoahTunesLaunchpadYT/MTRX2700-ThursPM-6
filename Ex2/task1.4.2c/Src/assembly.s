@@ -27,6 +27,7 @@ main:
     LDR R2, [R2] @load buffer
     B program_loop
 
+
 program_loop:
     LDR R0, =GPIOA
     LDR R1, [R0, #IDR]

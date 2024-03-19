@@ -33,11 +33,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  14 .debug_line   00000184  00000000  00000000  000200f7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line_str 000000be  00000000  00000000  0002027b  2**0
+ 15 .debug_line_str 000000bd  00000000  00000000  0002027b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_info   0000006c  00000000  00000000  00020339  2**0
+ 16 .debug_info   0000006c  00000000  00000000  00020338  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_abbrev 0000003a  00000000  00000000  000203a5  2**0
+ 17 .debug_abbrev 0000003a  00000000  00000000  000203a4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_aranges 00000068  00000000  00000000  000203e0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -122,12 +122,12 @@ initialise_discovery_board:
 	BX LR @ return from function call
  80001f4:	4770      	bx	lr
 
-080001f6 <count_character1>:
+080001f6 <count_character>:
 
 @ R0 = ASCII value of character
 @ R1 = Pointer to string
 @ Returns count in R0
-count_character1:
+count_character:
     PUSH {R2, R3, LR}
  80001f6:	b50c      	push	{r2, r3, lr}
     MOVS R0, R2
@@ -222,8 +222,8 @@ main:
  8000240:	7812      	ldrb	r2, [r2, #0]
 
 
-	BL count_character1
- 8000242:	f7ff ffd8 	bl	80001f6 <count_character1>
+	BL count_character
+ 8000242:	f7ff ffd8 	bl	80001f6 <count_character>
 	BL create_led_pattern
  8000246:	f000 f829 	bl	800029c <create_led_pattern>
 	LDR R1, =Word @load word
@@ -264,8 +264,8 @@ button_pressed:
 
 	LDR R1, =Word @load word
  800026c:	490a      	ldr	r1, [pc, #40]	; (8000298 <load_default+0x1c>)
-	BL count_character1 @after this R0 contains letter count
- 800026e:	f7ff ffc2 	bl	80001f6 <count_character1>
+	BL count_character @after this R0 contains letter count
+ 800026e:	f7ff ffc2 	bl	80001f6 <count_character>
 	BL create_led_pattern
  8000272:	f000 f813 	bl	800029c <create_led_pattern>
 	BL set_leds

@@ -141,7 +141,7 @@ increment_pattern:
 find_next_led:
     TST R3, R4
  80001fe:	4223      	tst	r3, r4
-    BNE already_on
+    BNE already_on @if R3=R4 then the bit is already on
  8000200:	d103      	bne.n	800020a <already_on>
     ORR R3, R3, R4
  8000202:	ea43 0304 	orr.w	r3, r3, r4
@@ -153,9 +153,9 @@ find_next_led:
 0800020a <already_on>:
 
 already_on:
-    LSL R4, R4, #1
+    LSL R4, R4, #1 @shift left by 1 bit
  800020a:	ea4f 0444 	mov.w	r4, r4, lsl #1
-    CMP R4, #0
+    CMP R4, #0 @if shfited is =0 then all on
  800020e:	2c00      	cmp	r4, #0
     BEQ all_leds_on
  8000210:	d000      	beq.n	8000214 <all_leds_on>
@@ -266,6 +266,7 @@ main:
  8000262:	e7ff      	b.n	8000264 <program_loop>
 
 08000264 <program_loop>:
+
 
 program_loop:
     LDR R0, =GPIOA

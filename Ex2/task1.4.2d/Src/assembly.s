@@ -4,7 +4,7 @@
 
 #include "initialise.s"
 #include "definitions.s"
-#include "count_character1.s"
+#include "count_character.s"
 #include "delay.s"
 .global main
 
@@ -37,7 +37,7 @@ main:
 	LDRB R2, [R2] @load actual letter
 
 
-	BL count_character1
+	BL count_character
 	BL create_led_pattern
 	LDR R1, =Word @load word
 	BL set_leds
@@ -60,7 +60,7 @@ button_pressed:
 	MOV R0, R2
 
 	LDR R1, =Word @load word
-	BL count_character1 @after this R0 contains letter count
+	BL count_character @after this R0 contains letter count
 	BL create_led_pattern
 	BL set_leds
 

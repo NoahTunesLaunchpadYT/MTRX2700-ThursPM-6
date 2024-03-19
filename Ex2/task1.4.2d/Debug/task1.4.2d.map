@@ -72,19 +72,19 @@ Discarded input sections
  .ARM.attributes
                 0x0000000000000000       0x1c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .bss           0x0000000000000000        0x0 ./Src/assembly.o
- .text          0x0000000000000000       0x1a ./Src/count_character1.o
- .data          0x0000000000000000        0x0 ./Src/count_character1.o
- .bss           0x0000000000000000        0x0 ./Src/count_character1.o
- .debug_line    0x0000000000000000       0x54 ./Src/count_character1.o
+ .text          0x0000000000000000       0x1a ./Src/count_character.o
+ .data          0x0000000000000000        0x0 ./Src/count_character.o
+ .bss           0x0000000000000000        0x0 ./Src/count_character.o
+ .debug_line    0x0000000000000000       0x54 ./Src/count_character.o
  .debug_line_str
-                0x0000000000000000       0x79 ./Src/count_character1.o
- .debug_info    0x0000000000000000       0x24 ./Src/count_character1.o
- .debug_abbrev  0x0000000000000000       0x14 ./Src/count_character1.o
+                0x0000000000000000       0x77 ./Src/count_character.o
+ .debug_info    0x0000000000000000       0x24 ./Src/count_character.o
+ .debug_abbrev  0x0000000000000000       0x14 ./Src/count_character.o
  .debug_aranges
-                0x0000000000000000       0x20 ./Src/count_character1.o
- .debug_str     0x0000000000000000       0x72 ./Src/count_character1.o
+                0x0000000000000000       0x20 ./Src/count_character.o
+ .debug_str     0x0000000000000000       0x71 ./Src/count_character.o
  .ARM.attributes
-                0x0000000000000000       0x20 ./Src/count_character1.o
+                0x0000000000000000       0x20 ./Src/count_character.o
  .data          0x0000000000000000        0x0 ./Src/create_led_pattern.o
  .bss           0x0000000000000000        0x0 ./Src/create_led_pattern.o
  .text          0x0000000000000000        0x0 ./Src/definitions.o
@@ -409,7 +409,7 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 LOAD ./Src/assembly.o
-LOAD ./Src/count_character1.o
+LOAD ./Src/count_character.o
 LOAD ./Src/create_led_pattern.o
 LOAD ./Src/definitions.o
 LOAD ./Src/delay.o
@@ -704,15 +704,15 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000000000000109       0x7b ./Startup/startup_stm32f303vctx.o
 
 .debug_line_str
-                0x0000000000000000       0xbe
+                0x0000000000000000       0xbd
  .debug_line_str
-                0x0000000000000000       0x86 ./Src/assembly.o
-                                         0x93 (size before relaxing)
+                0x0000000000000000       0x85 ./Src/assembly.o
+                                         0x92 (size before relaxing)
  .debug_line_str
-                0x0000000000000086       0x15 ./Src/create_led_pattern.o
+                0x0000000000000085       0x15 ./Src/create_led_pattern.o
                                          0x7d (size before relaxing)
  .debug_line_str
-                0x000000000000009b       0x23 ./Startup/startup_stm32f303vctx.o
+                0x000000000000009a       0x23 ./Startup/startup_stm32f303vctx.o
                                          0x87 (size before relaxing)
 
 .debug_info     0x0000000000000000       0x6c

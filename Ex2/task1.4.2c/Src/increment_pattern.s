@@ -9,14 +9,14 @@ increment_pattern:
 
 find_next_led:
     TST R3, R4
-    BNE already_on
+    BNE already_on @if R3=R4 then the bit is already on
     ORR R3, R3, R4
     STR R3, [R2]
     POP {PC} @take off the stack
 
 already_on:
-    LSL R4, R4, #1
-    CMP R4, #0
+    LSL R4, R4, #1 @shift left by 1 bit
+    CMP R4, #0 @if shfited is =0 then all on
     BEQ all_leds_on
     B find_next_led
 
