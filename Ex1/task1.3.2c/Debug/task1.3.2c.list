@@ -86,8 +86,8 @@ main:
 
     LDR R1, =string
  80001d4:	4910      	ldr	r1, [pc, #64]	; (8000218 <done+0x2>)
-    MOV R2, #5 @cipher value
- 80001d6:	f04f 0205 	mov.w	r2, #5
+    MOV R2, #-3 @cipher value
+ 80001d6:	f06f 0202 	mvn.w	r2, #2
 
 080001da <convert_case>:
 

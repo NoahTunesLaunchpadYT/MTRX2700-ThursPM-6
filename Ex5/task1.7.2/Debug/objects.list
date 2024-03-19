@@ -1,0 +1,4 @@
+"./Src/assembly.o"
+"./Src/decode.o"
+"./Src/letter_counter.o"
+"./Startup/startup_stm32f303vctx.o"

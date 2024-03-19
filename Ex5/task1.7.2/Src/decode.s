@@ -1,21 +1,21 @@
 .syntax unified
 .thumb
 
-.global main
+.global decode
+
+.extern string @allow var string into this function
 
 .data
-
-string: .asciz "Hello Tutor\0"
 byte_array: .byte 0, 1, 2, 3, 4, 5, 6
 word_array: .word 0x00, 0x40, 0x80, 0xc0, 0x10, 0x14, 0xffffffff
 
 .text
 
 @R1 is the input word
-@R4 is the output word?
+@R4 is the output word
 
-main:
-
+decode:
+	PUSH {R2, R3, R5, LR} @on the stack
     LDR R1, =string
     MOV R2, #3 @cipher value
 
@@ -68,5 +68,4 @@ next_char:
     B convert_case
 
 done:
-
-    B done
+POP {R2 ,R3, R5, PC} @ Restore R2,R3,R5 off the stack.
