@@ -72,22 +72,48 @@ Discarded input sections
  .ARM.attributes
                 0x0000000000000000       0x1c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .bss           0x0000000000000000        0x0 ./Src/assembly.o
+ .text          0x0000000000000000       0x24 ./Src/decrement_pattern.o
+ .data          0x0000000000000000        0x0 ./Src/decrement_pattern.o
+ .bss           0x0000000000000000        0x0 ./Src/decrement_pattern.o
+ .debug_line    0x0000000000000000       0x58 ./Src/decrement_pattern.o
+ .debug_line_str
+                0x0000000000000000       0x7b ./Src/decrement_pattern.o
+ .debug_info    0x0000000000000000       0x24 ./Src/decrement_pattern.o
+ .debug_abbrev  0x0000000000000000       0x14 ./Src/decrement_pattern.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./Src/decrement_pattern.o
+ .debug_str     0x0000000000000000       0x73 ./Src/decrement_pattern.o
+ .ARM.attributes
+                0x0000000000000000       0x20 ./Src/decrement_pattern.o
  .text          0x0000000000000000        0x0 ./Src/definitions.o
  .data          0x0000000000000000        0x0 ./Src/definitions.o
  .bss           0x0000000000000000        0x0 ./Src/definitions.o
  .ARM.attributes
                 0x0000000000000000       0x20 ./Src/definitions.o
+ .text          0x0000000000000000       0x28 ./Src/increment_pattern.o
+ .data          0x0000000000000000        0x0 ./Src/increment_pattern.o
+ .bss           0x0000000000000000        0x0 ./Src/increment_pattern.o
+ .debug_line    0x0000000000000000       0x59 ./Src/increment_pattern.o
+ .debug_line_str
+                0x0000000000000000       0x7b ./Src/increment_pattern.o
+ .debug_info    0x0000000000000000       0x24 ./Src/increment_pattern.o
+ .debug_abbrev  0x0000000000000000       0x14 ./Src/increment_pattern.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./Src/increment_pattern.o
+ .debug_str     0x0000000000000000       0x73 ./Src/increment_pattern.o
+ .ARM.attributes
+                0x0000000000000000       0x20 ./Src/increment_pattern.o
  .text          0x0000000000000000       0x2c ./Src/initialise.o
  .data          0x0000000000000000        0x0 ./Src/initialise.o
  .bss           0x0000000000000000        0x0 ./Src/initialise.o
  .debug_line    0x0000000000000000       0x59 ./Src/initialise.o
  .debug_line_str
-                0x0000000000000000       0x68 ./Src/initialise.o
+                0x0000000000000000       0x6d ./Src/initialise.o
  .debug_info    0x0000000000000000       0x24 ./Src/initialise.o
  .debug_abbrev  0x0000000000000000       0x14 ./Src/initialise.o
  .debug_aranges
                 0x0000000000000000       0x20 ./Src/initialise.o
- .debug_str     0x0000000000000000       0x67 ./Src/initialise.o
+ .debug_str     0x0000000000000000       0x6c ./Src/initialise.o
  .ARM.attributes
                 0x0000000000000000       0x20 ./Src/initialise.o
  .text          0x0000000000000000       0x14 ./Startup/startup_stm32f303vctx.o
@@ -381,7 +407,9 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 LOAD ./Src/assembly.o
+LOAD ./Src/decrement_pattern.o
 LOAD ./Src/definitions.o
+LOAD ./Src/increment_pattern.o
 LOAD ./Src/initialise.o
 LOAD ./Startup/startup_stm32f303vctx.o
 START GROUP
@@ -664,17 +692,17 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .comment       0x0000000000000000       0x43 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                                          0x44 (size before relaxing)
 
-.debug_line     0x0000000000000000      0x129
- .debug_line    0x0000000000000000       0xae ./Src/assembly.o
- .debug_line    0x00000000000000ae       0x7b ./Startup/startup_stm32f303vctx.o
+.debug_line     0x0000000000000000      0x13c
+ .debug_line    0x0000000000000000       0xc1 ./Src/assembly.o
+ .debug_line    0x00000000000000c1       0x7b ./Startup/startup_stm32f303vctx.o
 
 .debug_line_str
-                0x0000000000000000       0x89
+                0x0000000000000000       0xfd
  .debug_line_str
-                0x0000000000000000       0x66 ./Src/assembly.o
-                                         0x73 (size before relaxing)
+                0x0000000000000000       0x93 ./Src/assembly.o
+                                         0xa0 (size before relaxing)
  .debug_line_str
-                0x0000000000000066       0x23 ./Startup/startup_stm32f303vctx.o
+                0x0000000000000093       0x6a ./Startup/startup_stm32f303vctx.o
                                          0x82 (size before relaxing)
 
 .debug_info     0x0000000000000000       0x48
@@ -691,9 +719,9 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_aranges
                 0x0000000000000020       0x28 ./Startup/startup_stm32f303vctx.o
 
-.debug_str      0x0000000000000000       0x8a
- .debug_str     0x0000000000000000       0x67 ./Src/assembly.o
- .debug_str     0x0000000000000067       0x23 ./Startup/startup_stm32f303vctx.o
+.debug_str      0x0000000000000000       0xd6
+ .debug_str     0x0000000000000000       0x6c ./Src/assembly.o
+ .debug_str     0x000000000000006c       0x6a ./Startup/startup_stm32f303vctx.o
                                          0x76 (size before relaxing)
 
 .debug_rnglists

@@ -669,12 +669,12 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x000000000000006c       0x7b ./Startup/startup_stm32f303vctx.o
 
 .debug_line_str
-                0x0000000000000000       0x8a
+                0x0000000000000000       0xd6
  .debug_line_str
-                0x0000000000000000       0x67 ./Src/assembly.o
-                                         0x74 (size before relaxing)
+                0x0000000000000000       0x6b ./Src/assembly.o
+                                         0x78 (size before relaxing)
  .debug_line_str
-                0x0000000000000067       0x23 ./Startup/startup_stm32f303vctx.o
+                0x000000000000006b       0x6b ./Startup/startup_stm32f303vctx.o
                                          0x83 (size before relaxing)
 
 .debug_info     0x0000000000000000       0x47
@@ -691,9 +691,9 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_aranges
                 0x0000000000000020       0x28 ./Startup/startup_stm32f303vctx.o
 
-.debug_str      0x0000000000000000       0x8b
- .debug_str     0x0000000000000000       0x68 ./Src/assembly.o
- .debug_str     0x0000000000000068       0x23 ./Startup/startup_stm32f303vctx.o
+.debug_str      0x0000000000000000       0xd7
+ .debug_str     0x0000000000000000       0x6c ./Src/assembly.o
+ .debug_str     0x000000000000006c       0x6b ./Startup/startup_stm32f303vctx.o
                                          0x77 (size before relaxing)
 
 .debug_rnglists
