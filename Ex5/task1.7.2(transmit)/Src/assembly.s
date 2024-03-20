@@ -8,12 +8,13 @@
 .data
 @define word in .data,
 Word: .asciz "aaabcc" @decoded word
+cipher: .byte 0 @cipher value
 .text
 
 main:
 
 
-@set up all bens shit
+@set up all bens shit (functionize)
 
 
 

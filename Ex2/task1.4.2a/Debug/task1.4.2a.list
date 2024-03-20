@@ -113,7 +113,7 @@ initialise_discovery_board:
  80001e8:	4770      	bx	lr
 
 080001ea <set_leds>:
-LED_Pattern: .word 0b00000001 @LED pattern
+LED_Pattern: .word 0b11111111 @LED pattern
 
 .text
 

@@ -6,7 +6,7 @@
 .global main
 
 .data
-LED_Pattern: .word 0b00000001 @LED pattern
+LED_Pattern: .word 0b11111111 @LED pattern
 
 .text
 

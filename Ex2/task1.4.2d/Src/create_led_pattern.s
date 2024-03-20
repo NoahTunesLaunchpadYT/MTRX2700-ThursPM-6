@@ -5,6 +5,7 @@
 @ R0 = Number of LEDs to turn on
 @ Resulting pattern is stored in R6
 create_led_pattern:
+	PUSH {R9, LR}
     MOVS R6, #0x01@ Starting pattern 0b00000001
     MOVS R9, R0
     CMP R0, #0
@@ -25,4 +26,5 @@ pattern_nothing:
 	B pattern_done
 
 pattern_done:
+	POP {R9, PC}
     BX LR

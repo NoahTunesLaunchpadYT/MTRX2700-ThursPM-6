@@ -10,10 +10,11 @@
 @.global letter_counter
 
 .extern Word
+.extern DelayValue
 
 .data
 Default_LED_Pattern: .word 0b00000000
-DelayValue: .word 500000
+DelayValue: .word 2000000 @running the delay @ 1/2 sec, that means clock speed is 4MHz
 Defaultletter: .asciz "a"
 
 .text

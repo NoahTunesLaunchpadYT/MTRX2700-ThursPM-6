@@ -4,6 +4,7 @@
 @.global decode
 
 @allow var string into this function
+.extern cipher
 
 .data
 byte_array: .byte 0, 1, 2, 3, 4, 5, 6
@@ -17,7 +18,8 @@ word_array: .word 0x00, 0x40, 0x80, 0xc0, 0x10, 0x14, 0xffffffff
 decode:
 	PUSH {R2, R3, R5, LR} @on the stack
     @LDR R1, =string
-    MOV R2, #1 @cipher value
+    LDR R2, =cipher @cipher value
+    LDR R2, [R2]
 
 convert_case:
 
