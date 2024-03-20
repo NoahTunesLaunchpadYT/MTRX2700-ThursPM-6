@@ -8,19 +8,25 @@ S_SRCS += \
 ../Src/assembly.s \
 ../Src/decode.s \
 ../Src/definitions.s \
-../Src/initialise.s 
+../Src/info.s \
+../Src/initialise.s \
+../Src/transmit.s 
 
 OBJS += \
 ./Src/assembly.o \
 ./Src/decode.o \
 ./Src/definitions.o \
-./Src/initialise.o 
+./Src/info.o \
+./Src/initialise.o \
+./Src/transmit.o 
 
 S_DEPS += \
 ./Src/assembly.d \
 ./Src/decode.d \
 ./Src/definitions.d \
-./Src/initialise.d 
+./Src/info.d \
+./Src/initialise.d \
+./Src/transmit.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -30,7 +36,7 @@ Src/%.o: ../Src/%.s Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/decode.d ./Src/decode.o ./Src/definitions.d ./Src/definitions.o ./Src/initialise.d ./Src/initialise.o
+	-$(RM) ./Src/assembly.d ./Src/assembly.o ./Src/decode.d ./Src/decode.o ./Src/definitions.d ./Src/definitions.o ./Src/info.d ./Src/info.o ./Src/initialise.d ./Src/initialise.o ./Src/transmit.d ./Src/transmit.o
 
 .PHONY: clean-Src
 

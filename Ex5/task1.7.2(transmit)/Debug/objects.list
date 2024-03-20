@@ -1,5 +1,7 @@
 "./Src/assembly.o"
 "./Src/decode.o"
 "./Src/definitions.o"
+"./Src/info.o"
 "./Src/initialise.o"
+"./Src/transmit.o"
 "./Startup/startup_stm32f303vctx.o"
