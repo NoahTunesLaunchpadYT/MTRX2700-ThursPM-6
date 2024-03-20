@@ -1,0 +1,6 @@
+"./Src/3e_assembly.o"
+"./Src/3e_communicate.o"
+"./Src/3e_definitions.o"
+"./Src/3e_info.o"
+"./Src/3e_receive.o"
+"./Startup/startup_stm32f303vctx.o"

@@ -1,0 +1,5 @@
+"./Src/3c_Transmit.o"
+"./Src/3c_assembly.o"
+"./Src/3c_definitions.o"
+"./Src/3c_info.o"
+"./Startup/startup_stm32f303vctx.o"
