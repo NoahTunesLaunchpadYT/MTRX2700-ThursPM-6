@@ -2,166 +2,79 @@
 
 .thumb
 
-
-
 #include "3eN_info.s"
-
-
-
+#include "get_fucked.s"
 .text
 
-
-
 receive:
-
-
-
-    BL initialise_power          // Initialize power
-
+	BL initialise_power          // Initialize power
     BL enable_peripheral_clocks  // Enable peripheral clocks
-
     BL enable_uart5             // Enable USART1
 
-
-
     LDR R1, =rx_buffer      // Load the address of the rx_buffer
-
     LDR R2, =incoming_couter  // Load the max count of incoming characters
+	LDR R2, [R2]           // Load the max count value
 
-    LDR R2, [R2]           // Load the max count value
-
+	LDR R6, =rx_end
+	LDR R6, [R6]
 
 
     MOV R3, #0x00
 
 
-
-    LDR R6, =rx_end
-
-    LDR R6, [R6]
-
-
-
     BL receive_loop
-
     BL receive_reset
-
-
 
 receive_loop:
 
-
-
 	LDR R0, =UART5
-
 	LDR R4, [R0, USART_ISR]
-
-
-
 	TST R4, 1 << UART_ORE | 1 << UART_FE
-
 	BNE clear_error
 
-
-
 	TST R4, 1 << UART_RXNE
-
 	BEQ receive_loop
 
-
-
 	LDRB R5, [R0, USART_RDR]
-
 	STRB R5, [R1, R3]
-
 	ADD R3, #1
 
-
-
 	CMP R5, R6
-
-
-
 	BEQ terminating_char
 
-
-
 	CMP R2, R3
-
 	BGT receive_reset
-
 	MOV R3, #0
-
-
 
 	BX LR
 
-
-
 terminating_char:
-
-
-
 	B transmit
-
-
 
 receive_reset:
 
-
-
 	LDR R4, [R0, USART_RQR]
-
 	ORR R4, 1 << UART_RXFRQ
-
 	STR R4, [R0, USART_RQR]
-
-
 
     BGT receive_loop                 // Return from subroutine
 
-
-
 clear_error:
-
-
-
 	LDR R4, [R0, USART_ICR]
-
 	ORR R4, 1 << UART_ORECF | 1 << UART_FECF @ clear the flags (by setting flags to 1)
-
 	STR R4, [R0, USART_ICR]
-
 	B receive_loop
 
-
-
-
-
 transmit:
-
-
-
     BL tx_loop
-
-
 
 	BL tx_uart               // Reset index for transmission loop
 
-
-
 tx_loop:
-
-
-
 	BL enable_usart1
 
-
-
     LDR R0, =USART1
-
              // Load the base address for USART1
-
     LDR R1, =rx_buffer
 
 
@@ -254,7 +167,7 @@ tx_terminate:
 
     BGT tx_terminate
 
-
+	B inf
 
     BX LR                     // Loop back to main or finish program
 
@@ -264,19 +177,15 @@ tx_terminate:
 
 delay_loop:
 
-
-
 	LDR R7, =0x01
-
-
 
 delay_inner:
 
-
-
 	SUBS R7, #1
-
 	BGT delay_inner
-
 	BX LR
 
+inf:
+	@B get_fucked
+
+	B inf

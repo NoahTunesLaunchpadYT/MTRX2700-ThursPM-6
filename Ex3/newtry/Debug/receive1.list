@@ -5,47 +5,47 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   00000194  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         000002f4  08000194  08000194  00010194  2**2
+  1 .text         000003d0  08000194  08000194  00010194  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000000  08000488  08000488  0002004c  2**0
+  2 .rodata       00000000  08000564  08000564  00020054  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .ARM.extab    00000000  08000488  08000488  0002004c  2**0
+  3 .ARM.extab    00000000  08000564  08000564  00020054  2**0
                   CONTENTS
-  4 .ARM          00000000  08000488  08000488  0002004c  2**0
+  4 .ARM          00000000  08000564  08000564  00020054  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08000488  08000488  0002004c  2**0
+  5 .preinit_array 00000000  08000564  08000564  00020054  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08000488  08000488  00010488  2**2
+  6 .init_array   00000004  08000564  08000564  00010564  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  0800048c  0800048c  0001048c  2**2
+  7 .fini_array   00000004  08000568  08000568  00010568  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000004c  20000000  08000490  00020000  2**2
+  8 .data         00000054  20000000  0800056c  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .ccmram       00000000  10000000  10000000  0002004c  2**0
+  9 .ccmram       00000000  10000000  10000000  00020054  2**0
                   CONTENTS
- 10 .bss          0000001c  2000004c  2000004c  0002004c  2**2
+ 10 .bss          0000001c  20000054  20000054  00020054  2**2
                   ALLOC
- 11 ._user_heap_stack 00000600  20000068  20000068  0002004c  2**0
+ 11 ._user_heap_stack 00000600  20000070  20000070  00020054  2**0
                   ALLOC
- 12 .ARM.attributes 00000030  00000000  00000000  0002004c  2**0
+ 12 .ARM.attributes 00000030  00000000  00000000  00020054  2**0
                   CONTENTS, READONLY
- 13 .comment      00000043  00000000  00000000  0002007c  2**0
+ 13 .comment      00000043  00000000  00000000  00020084  2**0
                   CONTENTS, READONLY
- 14 .debug_line   000001ba  00000000  00000000  000200bf  2**0
+ 14 .debug_line   0000027a  00000000  00000000  000200c7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line_str 000000a0  00000000  00000000  00020279  2**0
+ 15 .debug_line_str 000000e9  00000000  00000000  00020341  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_info   00000048  00000000  00000000  00020319  2**0
+ 16 .debug_info   0000006c  00000000  00000000  0002042a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_abbrev 00000026  00000000  00000000  00020361  2**0
+ 17 .debug_abbrev 0000003a  00000000  00000000  00020496  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_aranges 00000048  00000000  00000000  00020388  2**3
+ 18 .debug_aranges 00000068  00000000  00000000  000204d0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00000089  00000000  00000000  000203d0  2**0
+ 19 .debug_str    000000a5  00000000  00000000  00020538  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_rnglists 00000019  00000000  00000000  00020459  2**0
+ 20 .debug_rnglists 00000019  00000000  00000000  000205dd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  0000002c  00000000  00000000  00020474  2**2
+ 21 .debug_frame  0000002c  00000000  00000000  000205f8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -62,9 +62,9 @@ Disassembly of section .text:
  80001a6:	2301      	movs	r3, #1
  80001a8:	7023      	strb	r3, [r4, #0]
  80001aa:	bd10      	pop	{r4, pc}
- 80001ac:	2000004c 	.word	0x2000004c
+ 80001ac:	20000054 	.word	0x20000054
  80001b0:	00000000 	.word	0x00000000
- 80001b4:	08000470 	.word	0x08000470
+ 80001b4:	0800054c 	.word	0x0800054c
 
 080001b8 <frame_dummy>:
  80001b8:	b508      	push	{r3, lr}
@@ -75,8 +75,8 @@ Disassembly of section .text:
  80001c2:	f3af 8000 	nop.w
  80001c6:	bd08      	pop	{r3, pc}
  80001c8:	00000000 	.word	0x00000000
- 80001cc:	20000050 	.word	0x20000050
- 80001d0:	08000470 	.word	0x08000470
+ 80001cc:	20000058 	.word	0x20000058
+ 80001d0:	0800054c 	.word	0x0800054c
 
 080001d4 <initialise_power>:
 
@@ -85,7 +85,7 @@ initialise_power:
 
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 80001d4:	4874      	ldr	r0, [pc, #464]	; (80003a8 <main+0x2>)
+ 80001d4:	489f      	ldr	r0, [pc, #636]	; (8000454 <main+0x2>)
 
 
 
@@ -125,7 +125,7 @@ initialise_power:
 	@ load the address of the RCC address boundary (for enabling the IO clock)
 
 	LDR R0, =RCC
- 80001e8:	486f      	ldr	r0, [pc, #444]	; (80003a8 <main+0x2>)
+ 80001e8:	489a      	ldr	r0, [pc, #616]	; (8000454 <main+0x2>)
 
 
 
@@ -152,7 +152,7 @@ enable_uart4:@ used for part e (transmit)
 
 
 	LDR R0, =GPIOC
- 80001f4:	486d      	ldr	r0, [pc, #436]	; (80003ac <main+0x6>)
+ 80001f4:	4898      	ldr	r0, [pc, #608]	; (8000458 <main+0x6>)
 
 
 
@@ -195,7 +195,7 @@ enable_uart4:@ used for part e (transmit)
 	@ you can find this out by looking in the datasheet
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 800020e:	4866      	ldr	r0, [pc, #408]	; (80003a8 <main+0x2>)
+ 800020e:	4891      	ldr	r0, [pc, #580]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #APB1ENR] @ load the original value from the enable register
  8000210:	69c1      	ldr	r1, [r0, #28]
@@ -214,7 +214,7 @@ enable_uart4:@ used for part e (transmit)
  8000218:	f04f 0146 	mov.w	r1, #70	; 0x46
 
 	LDR R0, =UART4 @ the base address for the register to turn clocks on/off
- 800021c:	4864      	ldr	r0, [pc, #400]	; (80003b0 <main+0xa>)
+ 800021c:	488f      	ldr	r0, [pc, #572]	; (800045c <main+0xa>)
 
 	STRH R1, [R0, #USART_BRR] @ store this value directly in the first half word (16 bits) of
  800021e:	8181      	strh	r1, [r0, #12]
@@ -224,7 +224,7 @@ enable_uart4:@ used for part e (transmit)
 	@ we want to set a few things here, lets define their bit positions to make it more readable
 
 	LDR R0, =UART4 @ the base address for the register to set up the specified UART
- 8000220:	4863      	ldr	r0, [pc, #396]	; (80003b0 <main+0xa>)
+ 8000220:	488e      	ldr	r0, [pc, #568]	; (800045c <main+0xa>)
 
 	LDR R1, [R0, #USART_CR1] @ load the original value from the enable register
  8000222:	6801      	ldr	r1, [r0, #0]
@@ -251,7 +251,7 @@ enable_uart5: @ used for part e (receive)
 
 
 	LDR R0, =GPIOD
- 800022c:	4861      	ldr	r0, [pc, #388]	; (80003b4 <main+0xe>)
+ 800022c:	488c      	ldr	r0, [pc, #560]	; (8000460 <main+0xe>)
 
 
 
@@ -294,7 +294,7 @@ enable_uart5: @ used for part e (receive)
 	@ you can find this out by looking in the datasheet
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 8000246:	4858      	ldr	r0, [pc, #352]	; (80003a8 <main+0x2>)
+ 8000246:	4883      	ldr	r0, [pc, #524]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #APB1ENR] @ load the original value from the enable register
  8000248:	69c1      	ldr	r1, [r0, #28]
@@ -313,7 +313,7 @@ enable_uart5: @ used for part e (receive)
  8000250:	f04f 0146 	mov.w	r1, #70	; 0x46
 
 	LDR R0, =UART5 @ the base address for the register to turn clocks on/off
- 8000254:	4858      	ldr	r0, [pc, #352]	; (80003b8 <main+0x12>)
+ 8000254:	4883      	ldr	r0, [pc, #524]	; (8000464 <main+0x12>)
 
 	STRH R1, [R0, #USART_BRR] @ store this value directly in the first half word (16 bits) of
  8000256:	8181      	strh	r1, [r0, #12]
@@ -323,7 +323,7 @@ enable_uart5: @ used for part e (receive)
 	@ we want to set a few things here, lets define their bit positions to make it more readable
 
 	LDR R0, =UART5 @ the base address for the register to set up the specified UART
- 8000258:	4857      	ldr	r0, [pc, #348]	; (80003b8 <main+0x12>)
+ 8000258:	4882      	ldr	r0, [pc, #520]	; (8000464 <main+0x12>)
 
 	LDR R1, [R0, #USART_CR1] @ load the original value from the enable register
  800025a:	6801      	ldr	r1, [r0, #0]
@@ -350,7 +350,7 @@ enable_usart1:
 
 
 	LDR R0, =GPIOC
- 8000264:	4851      	ldr	r0, [pc, #324]	; (80003ac <main+0x6>)
+ 8000264:	487c      	ldr	r0, [pc, #496]	; (8000458 <main+0x6>)
 
 
 
@@ -393,7 +393,7 @@ enable_usart1:
 	@ you can find this out by looking in the datasheet
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 800027e:	484a      	ldr	r0, [pc, #296]	; (80003a8 <main+0x2>)
+ 800027e:	4875      	ldr	r0, [pc, #468]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #APB2ENR] @ load the original value from the enable register
  8000280:	6981      	ldr	r1, [r0, #24]
@@ -412,7 +412,7 @@ enable_usart1:
  8000288:	f04f 0146 	mov.w	r1, #70	; 0x46
 
 	LDR R0, =USART1 @ the base address for the register to turn clocks on/off
- 800028c:	484b      	ldr	r0, [pc, #300]	; (80003bc <main+0x16>)
+ 800028c:	4876      	ldr	r0, [pc, #472]	; (8000468 <main+0x16>)
 
 	STRH R1, [R0, #USART_BRR] @ store this value directly in the first half word (16 bits) of
  800028e:	8181      	strh	r1, [r0, #12]
@@ -422,7 +422,7 @@ enable_usart1:
 	@ we want to set a few things here, lets define their bit positions to make it more readable
 
 	LDR R0, =USART1 @ the base address for the register to set up the specified UART
- 8000290:	484a      	ldr	r0, [pc, #296]	; (80003bc <main+0x16>)
+ 8000290:	4875      	ldr	r0, [pc, #468]	; (8000468 <main+0x16>)
 
 	LDR R1, [R0, #USART_CR1] @ load the original value from the enable register
  8000292:	6801      	ldr	r1, [r0, #0]
@@ -449,7 +449,7 @@ enable_usart1:
 	@ enable HSE (and wait for complete)
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 800029c:	4842      	ldr	r0, [pc, #264]	; (80003a8 <main+0x2>)
+ 800029c:	486d      	ldr	r0, [pc, #436]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #RCC_CR] @ load the original value from the enable register
  800029e:	6801      	ldr	r1, [r0, #0]
@@ -503,7 +503,7 @@ wait_for_HSERDY:
 	@ enable PLL (and wait for complete)
 
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 80002be:	483a      	ldr	r0, [pc, #232]	; (80003a8 <main+0x2>)
+ 80002be:	4865      	ldr	r0, [pc, #404]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #RCC_CR] @ load the original value from the enable register
  80002c0:	6801      	ldr	r1, [r0, #0]
@@ -534,7 +534,7 @@ wait_for_PLLRDY:
 @ step 3, PLL is ready, switch over the system clock to PLL
 
 	LDR R0, =RCC  @ load the address of the RCC address boundary (for enabling the IO clock)
- 80002d0:	4835      	ldr	r0, [pc, #212]	; (80003a8 <main+0x2>)
+ 80002d0:	4860      	ldr	r0, [pc, #384]	; (8000454 <main+0x2>)
 
 	LDR R1, [R0, #RCC_CFGR]  @ load the current value of the peripheral clock registers
  80002d2:	6841      	ldr	r1, [r0, #4]
@@ -566,507 +566,705 @@ wait_for_PLLRDY:
 	BX LR @ return
  80002e6:	4770      	bx	lr
 
-080002e8 <receive>:
+080002e8 <enable_peripheral_clocks1>:
+
+#include "definitions.s"
+
+@ enable the clocks for peripherals (GPIOA, C and E)
+enable_peripheral_clocks1:
+	LDR R0, =RCC  @ load the address of the RCC address boundary (for enabling the IO clock)
+ 80002e8:	485a      	ldr	r0, [pc, #360]	; (8000454 <main+0x2>)
+	LDR R1, [R0, #AHBENR]  @ load the current value of the peripheral clock registers
+ 80002ea:	6941      	ldr	r1, [r0, #20]
+	ORR R1, 1 << GPIOA_ENABLE | 1 << GPIOC_ENABLE | 1 << GPIOE_ENABLE  @ 21st bit is enable GPIOE clock, 17 is GPIOA clock
+ 80002ec:	f441 1128 	orr.w	r1, r1, #2752512	; 0x2a0000
+	STR R1, [R0, #AHBENR]  @ store the modified register back to the submodule
+ 80002f0:	6141      	str	r1, [r0, #20]
+	BX LR @ return from function call
+ 80002f2:	4770      	bx	lr
+
+080002f4 <initialise_discovery_board>:
+
+
+
+@ initialise the discovery board I/O (just outputs: inputs are selected by default)
+initialise_discovery_board:
+	LDR R7, =GPIOA
+ 80002f4:	f04f 4790 	mov.w	r7, #1207959552	; 0x48000000
+	LDR R4, [R7, GPIO_MODER]
+ 80002f8:	683c      	ldr	r4, [r7, #0]
+	BIC R4, R4, #0x3
+ 80002fa:	f024 0403 	bic.w	r4, r4, #3
+	STR R4, [R7, GPIO_MODER]
+ 80002fe:	603c      	str	r4, [r7, #0]
+
+	LDR R5, =GPIOE 	@ load the address of the GPIOE register into R0
+ 8000300:	4d5a      	ldr	r5, [pc, #360]	; (800046c <main+0x1a>)
+	LDR R6, =0x5555  @ load the binary value of 01 (OUTPUT) for each port in the upper two bytes
+ 8000302:	f245 5655 	movw	r6, #21845	; 0x5555
+							 @ as 0x5555 = 01010101 01010101
+	STRH R6, [R5, GPIO_MODER + 2]   @ store the new register values in the top half word representing
+ 8000306:	806e      	strh	r6, [r5, #2]
+								@ the MODER settings for pe8-15
+
+	BX LR @ return from function call
+ 8000308:	4770      	bx	lr
+
+0800030a <count_character>:
+
+@ R0 = ASCII value of character
+@ R1 = Pointer to string
+@ Returns count in R0
+count_character:
+    PUSH {R2, R3, LR}
+ 800030a:	b50c      	push	{r2, r3, lr}
+    MOVS R0, R2
+ 800030c:	0010      	movs	r0, r2
+    MOVS R3, #0
+ 800030e:	2300      	movs	r3, #0
+
+08000310 <count_loop>:
+
+count_loop:
+    LDRB R0, [R1], #1 @Load byte from string and post-increment address
+ 8000310:	f811 0b01 	ldrb.w	r0, [r1], #1
+    CMP R0, #0 @Cmp byte to null
+ 8000314:	2800      	cmp	r0, #0
+    BEQ count_done @If null end
+ 8000316:	d003      	beq.n	8000320 <count_done>
+    CMP R0, R2 @Cmp letter
+ 8000318:	4290      	cmp	r0, r2
+    BNE count_loop @If not continue
+ 800031a:	d1f9      	bne.n	8000310 <count_loop>
+    ADDS R3, R3, #1
+ 800031c:	3301      	adds	r3, #1
+    B count_loop
+ 800031e:	e7f7      	b.n	8000310 <count_loop>
+
+08000320 <count_done>:
+
+count_done:
+    MOVS R0, R3
+ 8000320:	0018      	movs	r0, r3
+    POP {R2, R3, PC}
+ 8000322:	bd0c      	pop	{r2, r3, pc}
+
+08000324 <delay>:
+
+.extern DelayValue
+
+@ Simple delay function
+delay:
+    PUSH {R8, LR}      @ Save R8 and Link Register
+ 8000324:	e92d 4100 	stmdb	sp!, {r8, lr}
+    LDR R8, =DelayValue @ Load address of DelayValue
+ 8000328:	f8df 8144 	ldr.w	r8, [pc, #324]	; 8000470 <main+0x1e>
+    LDR R8, [R8]        @ Load actual delay value into R8
+ 800032c:	f8d8 8000 	ldr.w	r8, [r8]
+
+08000330 <delay_loop1>:
+    delay_loop1:
+        SUBS R8, R8, #1  @ Decrement R8
+ 8000330:	f1b8 0801 	subs.w	r8, r8, #1
+        BNE delay_loop1   @ If R8 is not zero, continue looping
+ 8000334:	d1fc      	bne.n	8000330 <delay_loop1>
+    POP {R8, PC}        @ Restore R8 and return from function
+ 8000336:	e8bd 8100 	ldmia.w	sp!, {r8, pc}
+
+0800033a <set_leds>:
+Defaultletter: .asciz "a"
+
+.text
+
+set_leds: @R6 is the pattern
+    LDR R5, =GPIOE
+ 800033a:	4d4c      	ldr	r5, [pc, #304]	; (800046c <main+0x1a>)
+    STRB R6, [R5, #ODR + 1]
+ 800033c:	756e      	strb	r6, [r5, #21]
+    BX LR
+ 800033e:	4770      	bx	lr
+
+08000340 <get_fucked>:
+
+
+get_fucked:
+    BL enable_peripheral_clocks
+ 8000340:	f7ff ff52 	bl	80001e8 <enable_peripheral_clocks>
+    BL initialise_discovery_board
+ 8000344:	f7ff ffd6 	bl	80002f4 <initialise_discovery_board>
+
+	LDR R6, =Default_LED_Pattern
+ 8000348:	4e4a      	ldr	r6, [pc, #296]	; (8000474 <main+0x22>)
+	LDR R6, [R6]
+ 800034a:	6836      	ldr	r6, [r6, #0]
+	LDR R0, =Defaultletter @load addy
+ 800034c:	484a      	ldr	r0, [pc, #296]	; (8000478 <main+0x26>)
+	LDRB R0, [R0] @load actaul letter
+ 800034e:	7800      	ldrb	r0, [r0, #0]
+
+	LDR R2, =Defaultletter
+ 8000350:	4a49      	ldr	r2, [pc, #292]	; (8000478 <main+0x26>)
+	LDRB R2, [R2] @load actual letter
+ 8000352:	7812      	ldrb	r2, [r2, #0]
+
+
+	BL count_character
+ 8000354:	f7ff ffd9 	bl	800030a <count_character>
+	BL create_led_pattern
+ 8000358:	f000 f89a 	bl	8000490 <create_led_pattern>
+	BL set_leds
+ 800035c:	f7ff ffed 	bl	800033a <set_leds>
+
+08000360 <program_loop>:
+
+program_loop: @check if button pressed
+
+	BL delay
+ 8000360:	f7ff ffe0 	bl	8000324 <delay>
+
+ 	LDR R7, =GPIOA
+ 8000364:	f04f 4790 	mov.w	r7, #1207959552	; 0x48000000
+    LDR R4, [R7, #IDR]
+ 8000368:	693c      	ldr	r4, [r7, #16]
+    TST R4, #1
+ 800036a:	f014 0f01 	tst.w	r4, #1
+    BNE button_pressed
+ 800036e:	d100      	bne.n	8000372 <button_pressed>
+
+	B program_loop
+ 8000370:	e7f6      	b.n	8000360 <program_loop>
+
+08000372 <button_pressed>:
+
+button_pressed:
+	CMP R2, #122 @if letter =z load default letter
+ 8000372:	2a7a      	cmp	r2, #122	; 0x7a
+	BEQ load_default
+ 8000374:	d009      	beq.n	800038a <load_default>
+	ADD R2, R2, #1
+ 8000376:	f102 0201 	add.w	r2, r2, #1
+	MOV R0, R2
+ 800037a:	4610      	mov	r0, r2
+
+	BL count_character @after this R0 contains letter count
+ 800037c:	f7ff ffc5 	bl	800030a <count_character>
+	BL create_led_pattern
+ 8000380:	f000 f886 	bl	8000490 <create_led_pattern>
+	BL set_leds
+ 8000384:	f7ff ffd9 	bl	800033a <set_leds>
+
+
+	B program_loop
+ 8000388:	e7ea      	b.n	8000360 <program_loop>
+
+0800038a <load_default>:
+
+load_default:
+	LDR R2, =Defaultletter
+ 800038a:	4a3b      	ldr	r2, [pc, #236]	; (8000478 <main+0x26>)
+	LDRB R2, [R2]
+ 800038c:	7812      	ldrb	r2, [r2, #0]
+	B program_loop
+ 800038e:	e7e7      	b.n	8000360 <program_loop>
+
+08000390 <receive>:
+#include "3eN_info.s"
+#include "get_fucked.s"
+.text
 
 receive:
-
-
-
-    BL initialise_power          // Initialize power
- 80002e8:	f7ff ff74 	bl	80001d4 <initialise_power>
-
+	BL initialise_power          // Initialize power
+ 8000390:	f7ff ff20 	bl	80001d4 <initialise_power>
     BL enable_peripheral_clocks  // Enable peripheral clocks
- 80002ec:	f7ff ff7c 	bl	80001e8 <enable_peripheral_clocks>
-
+ 8000394:	f7ff ff28 	bl	80001e8 <enable_peripheral_clocks>
     BL enable_uart5             // Enable USART1
- 80002f0:	f7ff ff9c 	bl	800022c <enable_uart5>
-
-
+ 8000398:	f7ff ff48 	bl	800022c <enable_uart5>
 
     LDR R1, =rx_buffer      // Load the address of the rx_buffer
- 80002f4:	4932      	ldr	r1, [pc, #200]	; (80003c0 <main+0x1a>)
-
+ 800039c:	4937      	ldr	r1, [pc, #220]	; (800047c <main+0x2a>)
     LDR R2, =incoming_couter  // Load the max count of incoming characters
- 80002f6:	4a33      	ldr	r2, [pc, #204]	; (80003c4 <main+0x1e>)
+ 800039e:	4a38      	ldr	r2, [pc, #224]	; (8000480 <main+0x2e>)
+	LDR R2, [R2]           // Load the max count value
+ 80003a0:	6812      	ldr	r2, [r2, #0]
 
-    LDR R2, [R2]           // Load the max count value
- 80002f8:	6812      	ldr	r2, [r2, #0]
-
+	LDR R6, =rx_end
+ 80003a2:	4e38      	ldr	r6, [pc, #224]	; (8000484 <main+0x32>)
+	LDR R6, [R6]
+ 80003a4:	6836      	ldr	r6, [r6, #0]
 
 
     MOV R3, #0x00
- 80002fa:	f04f 0300 	mov.w	r3, #0
-
-
-
-    LDR R6, =rx_end
- 80002fe:	4e32      	ldr	r6, [pc, #200]	; (80003c8 <main+0x22>)
-
-    LDR R6, [R6]
- 8000300:	6836      	ldr	r6, [r6, #0]
-
+ 80003a6:	f04f 0300 	mov.w	r3, #0
 
 
     BL receive_loop
- 8000302:	f000 f802 	bl	800030a <receive_loop>
-
+ 80003aa:	f000 f802 	bl	80003b2 <receive_loop>
     BL receive_reset
- 8000306:	f000 f815 	bl	8000334 <receive_reset>
+ 80003ae:	f000 f815 	bl	80003dc <receive_reset>
 
-0800030a <receive_loop>:
+080003b2 <receive_loop>:
 
 receive_loop:
 
-
-
 	LDR R0, =UART5
- 800030a:	482b      	ldr	r0, [pc, #172]	; (80003b8 <main+0x12>)
-
+ 80003b2:	482c      	ldr	r0, [pc, #176]	; (8000464 <main+0x12>)
 	LDR R4, [R0, USART_ISR]
- 800030c:	69c4      	ldr	r4, [r0, #28]
-
-
-
+ 80003b4:	69c4      	ldr	r4, [r0, #28]
 	TST R4, 1 << UART_ORE | 1 << UART_FE
- 800030e:	f014 0f0a 	tst.w	r4, #10
-
+ 80003b6:	f014 0f0a 	tst.w	r4, #10
 	BNE clear_error
- 8000312:	d114      	bne.n	800033e <clear_error>
-
-
+ 80003ba:	d114      	bne.n	80003e6 <clear_error>
 
 	TST R4, 1 << UART_RXNE
- 8000314:	f014 0f20 	tst.w	r4, #32
-
+ 80003bc:	f014 0f20 	tst.w	r4, #32
 	BEQ receive_loop
- 8000318:	d0f7      	beq.n	800030a <receive_loop>
-
-
+ 80003c0:	d0f7      	beq.n	80003b2 <receive_loop>
 
 	LDRB R5, [R0, USART_RDR]
- 800031a:	f890 5024 	ldrb.w	r5, [r0, #36]	; 0x24
-
+ 80003c2:	f890 5024 	ldrb.w	r5, [r0, #36]	; 0x24
 	STRB R5, [R1, R3]
- 800031e:	54cd      	strb	r5, [r1, r3]
-
+ 80003c6:	54cd      	strb	r5, [r1, r3]
 	ADD R3, #1
- 8000320:	f103 0301 	add.w	r3, r3, #1
-
-
+ 80003c8:	f103 0301 	add.w	r3, r3, #1
 
 	CMP R5, R6
- 8000324:	42b5      	cmp	r5, r6
-
-
-
+ 80003cc:	42b5      	cmp	r5, r6
 	BEQ terminating_char
- 8000326:	d004      	beq.n	8000332 <terminating_char>
-
-
+ 80003ce:	d004      	beq.n	80003da <terminating_char>
 
 	CMP R2, R3
- 8000328:	429a      	cmp	r2, r3
-
+ 80003d0:	429a      	cmp	r2, r3
 	BGT receive_reset
- 800032a:	dc03      	bgt.n	8000334 <receive_reset>
-
+ 80003d2:	dc03      	bgt.n	80003dc <receive_reset>
 	MOV R3, #0
- 800032c:	f04f 0300 	mov.w	r3, #0
-
-
+ 80003d4:	f04f 0300 	mov.w	r3, #0
 
 	BX LR
- 8000330:	4770      	bx	lr
+ 80003d8:	4770      	bx	lr
 
-08000332 <terminating_char>:
+080003da <terminating_char>:
 
 terminating_char:
-
-
-
 	B transmit
- 8000332:	e009      	b.n	8000348 <transmit>
+ 80003da:	e009      	b.n	80003f0 <transmit>
 
-08000334 <receive_reset>:
+080003dc <receive_reset>:
 
 receive_reset:
 
-
-
 	LDR R4, [R0, USART_RQR]
- 8000334:	6984      	ldr	r4, [r0, #24]
-
+ 80003dc:	6984      	ldr	r4, [r0, #24]
 	ORR R4, 1 << UART_RXFRQ
- 8000336:	f044 0408 	orr.w	r4, r4, #8
-
+ 80003de:	f044 0408 	orr.w	r4, r4, #8
 	STR R4, [R0, USART_RQR]
- 800033a:	6184      	str	r4, [r0, #24]
-
-
+ 80003e2:	6184      	str	r4, [r0, #24]
 
     BGT receive_loop                 // Return from subroutine
- 800033c:	dce5      	bgt.n	800030a <receive_loop>
+ 80003e4:	dce5      	bgt.n	80003b2 <receive_loop>
 
-0800033e <clear_error>:
+080003e6 <clear_error>:
 
 clear_error:
-
-
-
 	LDR R4, [R0, USART_ICR]
- 800033e:	6a04      	ldr	r4, [r0, #32]
-
+ 80003e6:	6a04      	ldr	r4, [r0, #32]
 	ORR R4, 1 << UART_ORECF | 1 << UART_FECF @ clear the flags (by setting flags to 1)
- 8000340:	f044 0408 	orr.w	r4, r4, #8
-
+ 80003e8:	f044 0408 	orr.w	r4, r4, #8
 	STR R4, [R0, USART_ICR]
- 8000344:	6204      	str	r4, [r0, #32]
-
+ 80003ec:	6204      	str	r4, [r0, #32]
 	B receive_loop
- 8000346:	e7e0      	b.n	800030a <receive_loop>
+ 80003ee:	e7e0      	b.n	80003b2 <receive_loop>
 
-08000348 <transmit>:
+080003f0 <transmit>:
 
 transmit:
-
-
-
     BL tx_loop
- 8000348:	f000 f802 	bl	8000350 <tx_loop>
-
-
+ 80003f0:	f000 f802 	bl	80003f8 <tx_loop>
 
 	BL tx_uart               // Reset index for transmission loop
- 800034c:	f000 f804 	bl	8000358 <tx_uart>
+ 80003f4:	f000 f804 	bl	8000400 <tx_uart>
 
-08000350 <tx_loop>:
+080003f8 <tx_loop>:
 
 tx_loop:
-
-
-
 	BL enable_usart1
- 8000350:	f7ff ff88 	bl	8000264 <enable_usart1>
-
-
+ 80003f8:	f7ff ff34 	bl	8000264 <enable_usart1>
 
     LDR R0, =USART1
- 8000354:	4819      	ldr	r0, [pc, #100]	; (80003bc <main+0x16>)
-
+ 80003fc:	481a      	ldr	r0, [pc, #104]	; (8000468 <main+0x16>)
              // Load the base address for USART1
-
     LDR R1, =rx_buffer
- 8000356:	491a      	ldr	r1, [pc, #104]	; (80003c0 <main+0x1a>)
+ 80003fe:	491f      	ldr	r1, [pc, #124]	; (800047c <main+0x2a>)
 
-08000358 <tx_uart>:
+08000400 <tx_uart>:
 
 tx_uart:
 
 
 
 	LDR R11, [R0, USART_ISR] @ load the status of the UART
- 8000358:	f8d0 b01c 	ldr.w	fp, [r0, #28]
+ 8000400:	f8d0 b01c 	ldr.w	fp, [r0, #28]
 
 	ANDS R11, 1 << UART_TXE  @ 'AND' the current status with the bit mask that we are interested in
- 800035c:	f01b 0b80 	ands.w	fp, fp, #128	; 0x80
+ 8000404:	f01b 0b80 	ands.w	fp, fp, #128	; 0x80
 
 
 
 	@ loop back to check status again if the flag indicates there is no byte waiting
 
 	BEQ tx_uart
- 8000360:	d0fa      	beq.n	8000358 <tx_uart>
+ 8000408:	d0fa      	beq.n	8000400 <tx_uart>
 
 
 
 	@ load the next value in the string into the transmit buffer for the specified UART
 
 	LDRB R4, [R1], #1
- 8000362:	f811 4b01 	ldrb.w	r4, [r1], #1
+ 800040a:	f811 4b01 	ldrb.w	r4, [r1], #1
 
 	STRB R4, [R0, USART_TDR]
- 8000366:	f880 4028 	strb.w	r4, [r0, #40]	; 0x28
+ 800040e:	f880 4028 	strb.w	r4, [r0, #40]	; 0x28
 
 	@ note the use of the S on the ends of the SUBS, this means that the register flags are set
 
 	@ and this subtraction can be used to make a branch
 
 	SUBS R3, #1
- 800036a:	3b01      	subs	r3, #1
+ 8000412:	3b01      	subs	r3, #1
 
 
 
 	@ keep looping while there are more characters to send
 
 	BGT tx_uart
- 800036c:	dcf4      	bgt.n	8000358 <tx_uart>
+ 8000414:	dcf4      	bgt.n	8000400 <tx_uart>
 
 
 
 	@ make a delay before sending again
 
 	LDR R8, =tx_end
- 800036e:	f8df 805c 	ldr.w	r8, [pc, #92]	; 80003cc <main+0x26>
+ 8000416:	f8df 8070 	ldr.w	r8, [pc, #112]	; 8000488 <main+0x36>
 
 	LDR R9, =tx_end_length
- 8000372:	f8df 905c 	ldr.w	r9, [pc, #92]	; 80003d0 <main+0x2a>
+ 800041a:	f8df 9070 	ldr.w	r9, [pc, #112]	; 800048c <main+0x3a>
 
 	LDR R9, [R9]
- 8000376:	f8d9 9000 	ldr.w	r9, [r9]
+ 800041e:	f8d9 9000 	ldr.w	r9, [r9]
 
 	BL tx_terminate
- 800037a:	f000 f802 	bl	8000382 <tx_terminate>
+ 8000422:	f000 f802 	bl	800042a <tx_terminate>
 
 
 
 	BL delay_loop
- 800037e:	f000 f80d 	bl	800039c <delay_loop>
+ 8000426:	f000 f80e 	bl	8000446 <delay_loop>
 
-08000382 <tx_terminate>:
+0800042a <tx_terminate>:
 
 tx_terminate:
 
 
 
     LDR R11, [R0, USART_ISR]
- 8000382:	f8d0 b01c 	ldr.w	fp, [r0, #28]
+ 800042a:	f8d0 b01c 	ldr.w	fp, [r0, #28]
 
     ANDS R11, 1 << UART_TXE
- 8000386:	f01b 0b80 	ands.w	fp, fp, #128	; 0x80
+ 800042e:	f01b 0b80 	ands.w	fp, fp, #128	; 0x80
 
     BEQ tx_terminate
- 800038a:	d0fa      	beq.n	8000382 <tx_terminate>
+ 8000432:	d0fa      	beq.n	800042a <tx_terminate>
 
 
 
     LDRB R10, [R8], #1            // Load the terminating character
- 800038c:	f818 ab01 	ldrb.w	sl, [r8], #1
+ 8000434:	f818 ab01 	ldrb.w	sl, [r8], #1
 
 
 
     STRB R10, [R0, USART_TDR]     // Transmit the terminating character
- 8000390:	f880 a028 	strb.w	sl, [r0, #40]	; 0x28
+ 8000438:	f880 a028 	strb.w	sl, [r0, #40]	; 0x28
 
 
 
     SUBS R9, #1
- 8000394:	f1b9 0901 	subs.w	r9, r9, #1
+ 800043c:	f1b9 0901 	subs.w	r9, r9, #1
 
 
 
     BGT tx_terminate
- 8000398:	dcf3      	bgt.n	8000382 <tx_terminate>
+ 8000440:	dcf3      	bgt.n	800042a <tx_terminate>
 
-
+	B inf
+ 8000442:	e005      	b.n	8000450 <inf>
 
     BX LR                     // Loop back to main or finish program
- 800039a:	4770      	bx	lr
+ 8000444:	4770      	bx	lr
 
-0800039c <delay_loop>:
+08000446 <delay_loop>:
+
+
 
 delay_loop:
 
-
-
 	LDR R7, =0x01
- 800039c:	f04f 0701 	mov.w	r7, #1
+ 8000446:	f04f 0701 	mov.w	r7, #1
 
-080003a0 <delay_inner>:
+0800044a <delay_inner>:
 
 delay_inner:
 
-
-
 	SUBS R7, #1
- 80003a0:	3f01      	subs	r7, #1
-
+ 800044a:	3f01      	subs	r7, #1
 	BGT delay_inner
- 80003a2:	dcfd      	bgt.n	80003a0 <delay_inner>
-
+ 800044c:	dcfd      	bgt.n	800044a <delay_inner>
 	BX LR
- 80003a4:	4770      	bx	lr
+ 800044e:	4770      	bx	lr
 
-080003a6 <main>:
+08000450 <inf>:
 
+inf:
+	@B get_fucked
+
+	B inf
+ 8000450:	e7fe      	b.n	8000450 <inf>
+
+08000452 <main>:
+rx_end: .asciz "#"
 .text
 main:
 
 
 	B receive
- 80003a6:	e79f      	b.n	80002e8 <receive>
+ 8000452:	e79d      	b.n	8000390 <receive>
 	LDR R0, =RCC @ the base address for the register to turn clocks on/off
- 80003a8:	40021000 	.word	0x40021000
+ 8000454:	40021000 	.word	0x40021000
 	LDR R0, =GPIOC
- 80003ac:	48000800 	.word	0x48000800
+ 8000458:	48000800 	.word	0x48000800
 	LDR R0, =UART4 @ the base address for the register to turn clocks on/off
- 80003b0:	40004c00 	.word	0x40004c00
+ 800045c:	40004c00 	.word	0x40004c00
 	LDR R0, =GPIOD
- 80003b4:	48000c00 	.word	0x48000c00
+ 8000460:	48000c00 	.word	0x48000c00
 	LDR R0, =UART5 @ the base address for the register to turn clocks on/off
- 80003b8:	40005000 	.word	0x40005000
+ 8000464:	40005000 	.word	0x40005000
 	LDR R0, =USART1 @ the base address for the register to turn clocks on/off
- 80003bc:	40013800 	.word	0x40013800
+ 8000468:	40013800 	.word	0x40013800
+	LDR R5, =GPIOE 	@ load the address of the GPIOE register into R0
+ 800046c:	48001000 	.word	0x48001000
+    LDR R8, =DelayValue @ Load address of DelayValue
+ 8000470:	20000004 	.word	0x20000004
+	LDR R6, =Default_LED_Pattern
+ 8000474:	20000000 	.word	0x20000000
+	LDR R0, =Defaultletter @load addy
+ 8000478:	20000008 	.word	0x20000008
     LDR R1, =rx_buffer      // Load the address of the rx_buffer
- 80003c0:	20000008 	.word	0x20000008
+ 800047c:	20000010 	.word	0x20000010
     LDR R2, =incoming_couter  // Load the max count of incoming characters
- 80003c4:	20000046 	.word	0x20000046
-    LDR R6, =rx_end
- 80003c8:	20000047 	.word	0x20000047
+ 8000480:	2000004e 	.word	0x2000004e
+	LDR R6, =rx_end
+ 8000484:	2000004f 	.word	0x2000004f
 	LDR R8, =tx_end
- 80003cc:	20000000 	.word	0x20000000
+ 8000488:	2000000a 	.word	0x2000000a
 	LDR R9, =tx_end_length
- 80003d0:	20000004 	.word	0x20000004
+ 800048c:	2000000e 	.word	0x2000000e
 
-080003d4 <Reset_Handler>:
+08000490 <create_led_pattern>:
+
+.global create_led_pattern
+@ R0 = Number of LEDs to turn on
+@ Resulting pattern is stored in R6
+create_led_pattern:
+	PUSH {R9, LR}
+ 8000490:	e92d 4200 	stmdb	sp!, {r9, lr}
+    MOVS R6, #0x01@ Starting pattern 0b00000001
+ 8000494:	2601      	movs	r6, #1
+    CMP R0, #0
+ 8000496:	2800      	cmp	r0, #0
+    BEQ pattern_nothing
+ 8000498:	d007      	beq.n	80004aa <pattern_nothing>
+    SUBS R0, R0, #1@ Sub 1 from R0
+ 800049a:	3801      	subs	r0, #1
+
+0800049c <create_pattern_loop>:
+
+create_pattern_loop:
+    CMP R0, #0
+ 800049c:	2800      	cmp	r0, #0
+    BEQ pattern_done@ If R0 is 0, the pattern is complete
+ 800049e:	d006      	beq.n	80004ae <pattern_done>
+    LSLS R6, R6, #1@ Shift left by 1 bit
+ 80004a0:	0076      	lsls	r6, r6, #1
+    ORRS R6, R6, #1@ OR the pattern to turn on the next LED
+ 80004a2:	f056 0601 	orrs.w	r6, r6, #1
+    SUBS R0, R0, #1
+ 80004a6:	3801      	subs	r0, #1
+    B create_pattern_loop
+ 80004a8:	e7f8      	b.n	800049c <create_pattern_loop>
+
+080004aa <pattern_nothing>:
+
+
+pattern_nothing:
+	MOVS R6, #0
+ 80004aa:	2600      	movs	r6, #0
+	B pattern_done
+ 80004ac:	e7ff      	b.n	80004ae <pattern_done>
+
+080004ae <pattern_done>:
+
+pattern_done:
+    BX LR
+ 80004ae:	4770      	bx	lr
+
+080004b0 <Reset_Handler>:
 
   .section .text.Reset_Handler
   .weak Reset_Handler
   .type Reset_Handler, %function
 Reset_Handler:
   ldr   r0, =_estack
- 80003d4:	480d      	ldr	r0, [pc, #52]	; (800040c <LoopForever+0x2>)
+ 80004b0:	480d      	ldr	r0, [pc, #52]	; (80004e8 <LoopForever+0x2>)
   mov   sp, r0          /* set stack pointer */
- 80003d6:	4685      	mov	sp, r0
+ 80004b2:	4685      	mov	sp, r0
 /* Call the clock system initialization function.*/
   bl  SystemInit
- 80003d8:	f3af 8000 	nop.w
+ 80004b4:	f3af 8000 	nop.w
 
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
- 80003dc:	480c      	ldr	r0, [pc, #48]	; (8000410 <LoopForever+0x6>)
+ 80004b8:	480c      	ldr	r0, [pc, #48]	; (80004ec <LoopForever+0x6>)
   ldr r1, =_edata
- 80003de:	490d      	ldr	r1, [pc, #52]	; (8000414 <LoopForever+0xa>)
+ 80004ba:	490d      	ldr	r1, [pc, #52]	; (80004f0 <LoopForever+0xa>)
   ldr r2, =_sidata
- 80003e0:	4a0d      	ldr	r2, [pc, #52]	; (8000418 <LoopForever+0xe>)
+ 80004bc:	4a0d      	ldr	r2, [pc, #52]	; (80004f4 <LoopForever+0xe>)
   movs r3, #0
- 80003e2:	2300      	movs	r3, #0
+ 80004be:	2300      	movs	r3, #0
   b LoopCopyDataInit
- 80003e4:	e002      	b.n	80003ec <LoopCopyDataInit>
+ 80004c0:	e002      	b.n	80004c8 <LoopCopyDataInit>
 
-080003e6 <CopyDataInit>:
+080004c2 <CopyDataInit>:
 
 CopyDataInit:
   ldr r4, [r2, r3]
- 80003e6:	58d4      	ldr	r4, [r2, r3]
+ 80004c2:	58d4      	ldr	r4, [r2, r3]
   str r4, [r0, r3]
- 80003e8:	50c4      	str	r4, [r0, r3]
+ 80004c4:	50c4      	str	r4, [r0, r3]
   adds r3, r3, #4
- 80003ea:	3304      	adds	r3, #4
+ 80004c6:	3304      	adds	r3, #4
 
-080003ec <LoopCopyDataInit>:
+080004c8 <LoopCopyDataInit>:
 
 LoopCopyDataInit:
   adds r4, r0, r3
- 80003ec:	18c4      	adds	r4, r0, r3
+ 80004c8:	18c4      	adds	r4, r0, r3
   cmp r4, r1
- 80003ee:	428c      	cmp	r4, r1
+ 80004ca:	428c      	cmp	r4, r1
   bcc CopyDataInit
- 80003f0:	d3f9      	bcc.n	80003e6 <CopyDataInit>
+ 80004cc:	d3f9      	bcc.n	80004c2 <CopyDataInit>
 
 /* Zero fill the bss segment. */
   ldr r2, =_sbss
- 80003f2:	4a0a      	ldr	r2, [pc, #40]	; (800041c <LoopForever+0x12>)
+ 80004ce:	4a0a      	ldr	r2, [pc, #40]	; (80004f8 <LoopForever+0x12>)
   ldr r4, =_ebss
- 80003f4:	4c0a      	ldr	r4, [pc, #40]	; (8000420 <LoopForever+0x16>)
+ 80004d0:	4c0a      	ldr	r4, [pc, #40]	; (80004fc <LoopForever+0x16>)
   movs r3, #0
- 80003f6:	2300      	movs	r3, #0
+ 80004d2:	2300      	movs	r3, #0
   b LoopFillZerobss
- 80003f8:	e001      	b.n	80003fe <LoopFillZerobss>
+ 80004d4:	e001      	b.n	80004da <LoopFillZerobss>
 
-080003fa <FillZerobss>:
+080004d6 <FillZerobss>:
 
 FillZerobss:
   str  r3, [r2]
- 80003fa:	6013      	str	r3, [r2, #0]
+ 80004d6:	6013      	str	r3, [r2, #0]
   adds r2, r2, #4
- 80003fc:	3204      	adds	r2, #4
+ 80004d8:	3204      	adds	r2, #4
 
-080003fe <LoopFillZerobss>:
+080004da <LoopFillZerobss>:
 
 LoopFillZerobss:
   cmp r2, r4
- 80003fe:	42a2      	cmp	r2, r4
+ 80004da:	42a2      	cmp	r2, r4
   bcc FillZerobss
- 8000400:	d3fb      	bcc.n	80003fa <FillZerobss>
+ 80004dc:	d3fb      	bcc.n	80004d6 <FillZerobss>
 
 /* Call static constructors */
   bl __libc_init_array
- 8000402:	f000 f811 	bl	8000428 <__libc_init_array>
+ 80004de:	f000 f811 	bl	8000504 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
- 8000406:	f7ff ffce 	bl	80003a6 <main>
+ 80004e2:	f7ff ffb6 	bl	8000452 <main>
 
-0800040a <LoopForever>:
+080004e6 <LoopForever>:
 
 LoopForever:
   b LoopForever
- 800040a:	e7fe      	b.n	800040a <LoopForever>
+ 80004e6:	e7fe      	b.n	80004e6 <LoopForever>
   ldr   r0, =_estack
- 800040c:	2000a000 	.word	0x2000a000
+ 80004e8:	2000a000 	.word	0x2000a000
   ldr r0, =_sdata
- 8000410:	20000000 	.word	0x20000000
+ 80004ec:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 8000414:	2000004c 	.word	0x2000004c
+ 80004f0:	20000054 	.word	0x20000054
   ldr r2, =_sidata
- 8000418:	08000490 	.word	0x08000490
+ 80004f4:	0800056c 	.word	0x0800056c
   ldr r2, =_sbss
- 800041c:	2000004c 	.word	0x2000004c
+ 80004f8:	20000054 	.word	0x20000054
   ldr r4, =_ebss
- 8000420:	20000068 	.word	0x20000068
+ 80004fc:	20000070 	.word	0x20000070
 
-08000424 <ADC1_2_IRQHandler>:
+08000500 <ADC1_2_IRQHandler>:
  * @retval : None
 */
   .section .text.Default_Handler,"ax",%progbits
 Default_Handler:
 Infinite_Loop:
   b Infinite_Loop
- 8000424:	e7fe      	b.n	8000424 <ADC1_2_IRQHandler>
+ 8000500:	e7fe      	b.n	8000500 <ADC1_2_IRQHandler>
 	...
 
-08000428 <__libc_init_array>:
- 8000428:	b570      	push	{r4, r5, r6, lr}
- 800042a:	4d0d      	ldr	r5, [pc, #52]	; (8000460 <__libc_init_array+0x38>)
- 800042c:	4c0d      	ldr	r4, [pc, #52]	; (8000464 <__libc_init_array+0x3c>)
- 800042e:	1b64      	subs	r4, r4, r5
- 8000430:	10a4      	asrs	r4, r4, #2
- 8000432:	2600      	movs	r6, #0
- 8000434:	42a6      	cmp	r6, r4
- 8000436:	d109      	bne.n	800044c <__libc_init_array+0x24>
- 8000438:	4d0b      	ldr	r5, [pc, #44]	; (8000468 <__libc_init_array+0x40>)
- 800043a:	4c0c      	ldr	r4, [pc, #48]	; (800046c <__libc_init_array+0x44>)
- 800043c:	f000 f818 	bl	8000470 <_init>
- 8000440:	1b64      	subs	r4, r4, r5
- 8000442:	10a4      	asrs	r4, r4, #2
- 8000444:	2600      	movs	r6, #0
- 8000446:	42a6      	cmp	r6, r4
- 8000448:	d105      	bne.n	8000456 <__libc_init_array+0x2e>
- 800044a:	bd70      	pop	{r4, r5, r6, pc}
- 800044c:	f855 3b04 	ldr.w	r3, [r5], #4
- 8000450:	4798      	blx	r3
- 8000452:	3601      	adds	r6, #1
- 8000454:	e7ee      	b.n	8000434 <__libc_init_array+0xc>
- 8000456:	f855 3b04 	ldr.w	r3, [r5], #4
- 800045a:	4798      	blx	r3
- 800045c:	3601      	adds	r6, #1
- 800045e:	e7f2      	b.n	8000446 <__libc_init_array+0x1e>
- 8000460:	08000488 	.word	0x08000488
- 8000464:	08000488 	.word	0x08000488
- 8000468:	08000488 	.word	0x08000488
- 800046c:	0800048c 	.word	0x0800048c
+08000504 <__libc_init_array>:
+ 8000504:	b570      	push	{r4, r5, r6, lr}
+ 8000506:	4d0d      	ldr	r5, [pc, #52]	; (800053c <__libc_init_array+0x38>)
+ 8000508:	4c0d      	ldr	r4, [pc, #52]	; (8000540 <__libc_init_array+0x3c>)
+ 800050a:	1b64      	subs	r4, r4, r5
+ 800050c:	10a4      	asrs	r4, r4, #2
+ 800050e:	2600      	movs	r6, #0
+ 8000510:	42a6      	cmp	r6, r4
+ 8000512:	d109      	bne.n	8000528 <__libc_init_array+0x24>
+ 8000514:	4d0b      	ldr	r5, [pc, #44]	; (8000544 <__libc_init_array+0x40>)
+ 8000516:	4c0c      	ldr	r4, [pc, #48]	; (8000548 <__libc_init_array+0x44>)
+ 8000518:	f000 f818 	bl	800054c <_init>
+ 800051c:	1b64      	subs	r4, r4, r5
+ 800051e:	10a4      	asrs	r4, r4, #2
+ 8000520:	2600      	movs	r6, #0
+ 8000522:	42a6      	cmp	r6, r4
+ 8000524:	d105      	bne.n	8000532 <__libc_init_array+0x2e>
+ 8000526:	bd70      	pop	{r4, r5, r6, pc}
+ 8000528:	f855 3b04 	ldr.w	r3, [r5], #4
+ 800052c:	4798      	blx	r3
+ 800052e:	3601      	adds	r6, #1
+ 8000530:	e7ee      	b.n	8000510 <__libc_init_array+0xc>
+ 8000532:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8000536:	4798      	blx	r3
+ 8000538:	3601      	adds	r6, #1
+ 800053a:	e7f2      	b.n	8000522 <__libc_init_array+0x1e>
+ 800053c:	08000564 	.word	0x08000564
+ 8000540:	08000564 	.word	0x08000564
+ 8000544:	08000564 	.word	0x08000564
+ 8000548:	08000568 	.word	0x08000568
 
-08000470 <_init>:
- 8000470:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8000472:	bf00      	nop
- 8000474:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8000476:	bc08      	pop	{r3}
- 8000478:	469e      	mov	lr, r3
- 800047a:	4770      	bx	lr
+0800054c <_init>:
+ 800054c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800054e:	bf00      	nop
+ 8000550:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8000552:	bc08      	pop	{r3}
+ 8000554:	469e      	mov	lr, r3
+ 8000556:	4770      	bx	lr
 
-0800047c <_fini>:
- 800047c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800047e:	bf00      	nop
- 8000480:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8000482:	bc08      	pop	{r3}
- 8000484:	469e      	mov	lr, r3
- 8000486:	4770      	bx	lr
+08000558 <_fini>:
+ 8000558:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800055a:	bf00      	nop
+ 800055c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800055e:	bc08      	pop	{r3}
+ 8000560:	469e      	mov	lr, r3
+ 8000562:	4770      	bx	lr

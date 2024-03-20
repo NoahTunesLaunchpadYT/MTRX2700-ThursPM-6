@@ -423,4 +423,3 @@ wait_for_PLLRDY:
 	BX LR @ return
 
 
-
