@@ -12,8 +12,8 @@ word_array: .word 0x00, 0x40, 0x80, 0xc0, 0x10, 0x14, 0xffffffff
 
 .text
 
-@R1 is the input word
-@R4 is the output word
+@R4 is the input word
+@R11 is the output word
 
 decode:
 	PUSH {R2, R3, R5, LR} @on the stack
@@ -23,50 +23,50 @@ decode:
 
 convert_case:
 
-    LDRB R3, [R1]
+    LDRB R3, [R11]
     CMP R3, #0
     BEQ done
 
-    SUBS R4, R3, #'A'
-    CMP R4, #26 @checking if outside of letter range
+    SUBS R11, R3, #'A'
+    CMP R11, #26 @checking if outside of letter range
     BLT Letter_process @if more then it either lowercase or not a letter
 
-    SUBS R4, R3, #'a'
-    CMP R4, #26 @checking if outside of letter range
+    SUBS R11, R3, #'a'
+    CMP R11, #26 @checking if outside of letter range
     BLT Letter_process @if more then its not a letter
 
     B next_char
 
 Letter_process:
 
-    ADDS R4, R4, R2
-    ADDS R4, R4, #26
+    ADDS R11, R11, R2
+    ADDS R11, R11, #26
     MOV R5, #26
 
 MOD_loop:
 
-    SUBS R4, R4, R5
+    SUBS R11, R11, R5
     BCS MOD_loop
 
-    ADD R4, R4, R5
+    ADD R11, R11, R5
 
     CMP R3, #'a'
     BLT Upper_case
-    ADD R4, R4, #'a'
+    ADD R11, R11, #'a'
     B store_char
 
 
 Upper_case:
 
-    ADD R4, R4, #'A'
+    ADD R11, R11, #'A'
 
 store_char:
 
-    STRB R4, [R1]
+    STRB R11, [R11]
 
 next_char:
 
-    ADD R1, R1, #1
+    ADD R11, R11, #1
     B convert_case
 
 done:

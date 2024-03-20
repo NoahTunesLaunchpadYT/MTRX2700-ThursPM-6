@@ -2,6 +2,7 @@
 .thumb
 
 #include "info.s"
+#include "decode.s"
 
 for_button:
 
@@ -47,6 +48,8 @@ tx_uart:
 	STRB R4, [R0, USART_TDR]
 
 	BL confirmation
+
+	BL decode
 
 
 	@ note the use of the S on the end of the SUBS, this means that the register flags are set

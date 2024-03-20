@@ -17,7 +17,7 @@ tx_end_length: .byte 3
 
 .align
 
-tx_string: .asciz "hellotut\r\n"
+tx_string: .asciz "aabbbbcccccc\r\n"
 tx_length: .byte 10
 
 .text
