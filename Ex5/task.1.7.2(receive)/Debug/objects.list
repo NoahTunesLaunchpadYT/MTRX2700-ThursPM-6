@@ -1,4 +1,6 @@
+"./Src/_info.o"
 "./Src/assembly.o"
+"./Src/communicate.o"
 "./Src/count_character.o"
 "./Src/create_led_pattern.o"
 "./Src/decode.o"
@@ -6,4 +8,5 @@
 "./Src/delay.o"
 "./Src/initialise.o"
 "./Src/letter_counter.o"
+"./Src/receive.o"
 "./Startup/startup_stm32f303vctx.o"

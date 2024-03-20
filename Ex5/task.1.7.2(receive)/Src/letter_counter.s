@@ -2,10 +2,10 @@
 .thumb
 
 
-#include "initialise.s"
-#include "definitions.s"
+#include "initalise.s"
 #include "count_character.s"
 #include "delay.s"
+#include "_info.s"
 
 @.global letter_counter
 
@@ -26,8 +26,9 @@ set_leds: @R6 is the pattern
 
 
 letter_counter:
-    BL enable_peripheral_clocks
-    BL initialise_discovery_board
+	PUSH {R1, R2, R3, R4, R5, R6, R7, LR}
+    BL enable_peripheral_clocks_z
+    BL initialise_discovery_board_z
 
 	LDR R6, =Default_LED_Pattern
 	LDR R6, [R6]
@@ -74,3 +75,6 @@ load_default:
 	LDRB R2, [R2]
 	B program_loop
 
+
+Error:
+POP{{R1, R2, R3, R4, R5, R6, R7, PC}

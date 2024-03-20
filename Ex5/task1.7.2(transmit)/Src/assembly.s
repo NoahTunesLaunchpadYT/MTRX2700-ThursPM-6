@@ -2,13 +2,24 @@
 .thumb
 
 #include "decode.s"
+#include "transmit.s"
+
 
 .global main
 
 .data
 @define word in .data,
-Word: .asciz "aaabcc" @decoded word
+@word: .asciz "aaabcc" @decoded word
 cipher: .byte 0 @cipher value
+
+tx_end: .asciz ";\r\n"
+tx_end_length: .byte 3
+
+.align
+
+tx_string: .asciz "hellotut\r\n"
+tx_length: .byte 10
+
 .text
 
 main:
@@ -16,12 +27,10 @@ main:
 
 @set up all bens shit (functionize)
 
-
-
-@use function decode (renamed to encode) and use the word as R1 (input), the output should be R4.
 @transmit output R4
-LDR R1, =Word
+LDR R1, =tx_string @setting the word in R1 for decode function
 BL decode
-@transmit R4 to other board
+LDR R1, R4 @setting the output of the decode function to R1 for the transmit function
+@transmit Encoded word R4/R1 to other board
+B for_button
 
-B main
