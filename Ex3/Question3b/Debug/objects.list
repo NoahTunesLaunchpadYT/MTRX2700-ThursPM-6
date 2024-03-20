@@ -1,5 +1,0 @@
-"./Src/3b_assembly.o"
-"./Src/3b_definitions.o"
-"./Src/3b_info.o"
-"./Src/3b_receive.o"
-"./Startup/startup_stm32f303vctx.o"

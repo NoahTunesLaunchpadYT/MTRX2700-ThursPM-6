@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := task1.5.2b
+BUILD_ARTIFACT_NAME := Question3b
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-task1.5.2b.elf \
+Question3b.elf \
 
 MAP_FILES += \
-task1.5.2b.map \
+Question3b.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-task1.5.2b.list \
+Question3b.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: task1.5.2b.elf secondary-outputs
+main-build: Question3b.elf secondary-outputs
 
 # Tool invocations
-task1.5.2b.elf task1.5.2b.map: $(OBJS) $(USER_OBJS) C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex3\task1.5.2b\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "task1.5.2b.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tiago\Desktop\UNI\MTRX2700\MTRX2700-ThursPM-6\Ex3\task1.5.2b\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="task1.5.2b.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Question3b.elf Question3b.map: $(OBJS) $(USER_OBJS) C:\Users\bwood\STM32CubeIDE\workspace_1.14.1\Question3b\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Question3b.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\bwood\STM32CubeIDE\workspace_1.14.1\Question3b\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Question3b.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-task1.5.2b.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "task1.5.2b.list"
+Question3b.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Question3b.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout task1.5.2b.elf task1.5.2b.list task1.5.2b.map
+	-$(RM) Question3b.elf Question3b.list Question3b.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
