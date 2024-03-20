@@ -18,21 +18,18 @@ Converting functions, involving converting a string to all to uppercase, all to 
 Functions that involve using LEDs as output and user button used as inputs to create a bunch of patterns.
 
 ## Exercise 3
-One Line Descriptor
+Functions that demostrate commuincation through the GPIO ports, involving communication from the computer to the board and board to board.
 
 ## Exercise 4
-One Line Descriptor
+using the boards inbuilt/hardware timers to manipulate them into different frequencies and wave types.
 
 ## Exercise 5
-One Line Descriptor
+Implementing all the previous tasks into 1, the overview of the function is that it board 1 using USART1 sends a messenge to board 1, then the board encodes the messenge 
+and sends it through UART4 to UART5 on board 2. board 2 decodes the messenge, then shows the letter count on the boards leds, similar to Ex2 D.
 
 
 ### Summary
-
-
-### Usage
-
-
+Comfirmed Ex that are completed/working are 1, 2, 3. Ex5 was started but not in working condition. Ex4 unknown. 
 
 ### Valid input
 
