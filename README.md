@@ -29,7 +29,7 @@ and sends it through UART4 to UART5 on board 2. board 2 decodes the messenge, th
 
 
 ### Summary
-Comfirmed Ex that are completed/working are 1, 2, 3. Ex5 was started but not in working condition. Ex4 unknown. 
+Comfirmed Ex that are completed/working are 1, 2, 3. Ex5 was started but not in working condition. Ex4 is finnicky. 
 
 ### Valid input
 
@@ -41,7 +41,7 @@ include delay and create pattern. Ex3 . Ex4 . Ex5 is broken down into multiple r
 ### Testing
 For Ex1 and Ex2, testing involved going set up set in the debugger and mainly looking at what each register was doing, and also look for looping problems. 
 Ex3 involved a lot of trial n error, we used a program called puTTy to view the outputs of the commports e.g. everything that gets transmitting
-Ex4 
+Ex4 Used the formula for the prescalar to find out the appropriate value to set for certain delays. Also used an oscilloscope to visualise delay data
 Ex5 used puTTy to view the outputs of the commports, and used the debugger to go through step by step to view the registers and looping problems
 
 ### Notes
