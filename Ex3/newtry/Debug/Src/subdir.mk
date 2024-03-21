@@ -9,36 +9,21 @@ S_SRCS += \
 ../Src/3eN_assembly.s \
 ../Src/3eN_definitions.s \
 ../Src/3eN_info.s \
-../Src/count_character.s \
-../Src/create_led_pattern.s \
-../Src/definitions.s \
-../Src/delay.s \
-../Src/get_fucked.s \
-../Src/initialise.s 
+../Src/definitions.s 
 
 OBJS += \
 ./Src/3eN_Receive_Trans.o \
 ./Src/3eN_assembly.o \
 ./Src/3eN_definitions.o \
 ./Src/3eN_info.o \
-./Src/count_character.o \
-./Src/create_led_pattern.o \
-./Src/definitions.o \
-./Src/delay.o \
-./Src/get_fucked.o \
-./Src/initialise.o 
+./Src/definitions.o 
 
 S_DEPS += \
 ./Src/3eN_Receive_Trans.d \
 ./Src/3eN_assembly.d \
 ./Src/3eN_definitions.d \
 ./Src/3eN_info.d \
-./Src/count_character.d \
-./Src/create_led_pattern.d \
-./Src/definitions.d \
-./Src/delay.d \
-./Src/get_fucked.d \
-./Src/initialise.d 
+./Src/definitions.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -48,7 +33,7 @@ Src/%.o: ../Src/%.s Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/3eN_Receive_Trans.d ./Src/3eN_Receive_Trans.o ./Src/3eN_assembly.d ./Src/3eN_assembly.o ./Src/3eN_definitions.d ./Src/3eN_definitions.o ./Src/3eN_info.d ./Src/3eN_info.o ./Src/count_character.d ./Src/count_character.o ./Src/create_led_pattern.d ./Src/create_led_pattern.o ./Src/definitions.d ./Src/definitions.o ./Src/delay.d ./Src/delay.o ./Src/get_fucked.d ./Src/get_fucked.o ./Src/initialise.d ./Src/initialise.o
+	-$(RM) ./Src/3eN_Receive_Trans.d ./Src/3eN_Receive_Trans.o ./Src/3eN_assembly.d ./Src/3eN_assembly.o ./Src/3eN_definitions.d ./Src/3eN_definitions.o ./Src/3eN_info.d ./Src/3eN_info.o ./Src/definitions.d ./Src/definitions.o
 
 .PHONY: clean-Src
 

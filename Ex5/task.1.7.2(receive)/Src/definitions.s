@@ -3,6 +3,10 @@
 .equ IDR, 0x10
 
 
+.equ MODER, 0x00	@ register for setting the port mode (in/out/etc)
+.equ ODR, 0x14	@ GPIO output register
+.equ IDR, 0x10	@ GPIO input register
+
 @ base register for resetting and clock settings
 .equ RCC, 0x40021000
 .equ AHBENR, 0x14	@ register for enabling clocks

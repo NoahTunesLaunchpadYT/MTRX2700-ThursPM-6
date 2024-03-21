@@ -3,7 +3,6 @@
 .thumb
 
 #include "3eN_info.s"
-#include "get_fucked.s"
 .text
 
 receive:
@@ -186,6 +185,5 @@ delay_inner:
 	BX LR
 
 inf:
-	@B get_fucked
 
 	B inf
